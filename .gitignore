@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.venv/
+venv/
+
+# Olla-DFT project state and generated outputs
+.qekit/
+*.log
+barrido.log
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "olla-dft"
+version = "1.0.0"
+description = "Command-line toolkit for Quantum ESPRESSO: input generation, post-processing, materials properties and quality control"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "Jorge Enrique González Sevilla" }]
+keywords = ["quantum-espresso", "dft", "materials-science", "band-structure", "phonons", "cli"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Natural Language :: Spanish",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: Microsoft :: Windows",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = [
+    "numpy>=1.20",
+    "scipy>=1.8",
+    "matplotlib>=3.5",
+    "ase>=3.22",
+    "spglib>=2.0",
+    "seekpath>=2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/jorgegonzalezsevilla/olla-dft"
+Documentation = "https://github.com/jorgegonzalezsevilla/olla-dft/tree/main/docs"
+Issues = "https://github.com/jorgegonzalezsevilla/olla-dft/issues"
+
+[project.scripts]
+olla-dft = "qekit.cli:main"
+
+[project.optional-dependencies]
+test = ["pytest>=7", "pyflakes>=3"]
+# Machine-learned interatomic potentials (olla-dft mlip, amorphous): optional, ~1.2 GB.
+mlip = ["torch", "mace-torch"]
+# Lattice thermal conductivity (olla-dft kappa): solves the phonon BTE.
+kappa = ["phono3py>=3"]
+
+[tool.setuptools.packages.find]
+include = ["qekit*"]
+
+[tool.setuptools.package-data]
+"qekit.data" = ["*.json", "*.txt", "i18n/*.json", "theory/*.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "qe: needs Quantum ESPRESSO binaries installed",
+]
+filterwarnings = [
+    "ignore::DeprecationWarning:spglib.*",
+]

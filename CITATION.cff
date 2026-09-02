@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use Olla-DFT in your research, please cite it as below."
+type: software
+title: "Olla-DFT: a command-line toolkit for Quantum ESPRESSO"
+version: 1.0.0
+date-released: 2026-09-02
+license: GPL-3.0
+repository-code: "https://github.com/jorgegonzalezsevilla/olla-dft"
+authors:
+  - family-names: "González Sevilla"
+    given-names: "Jorge Enrique"
+    affiliation: "Universidad de Guadalajara, CUCEI"
+keywords:
+  - Quantum ESPRESSO
+  - density functional theory
+  - materials science
+  - band structure
+  - phonons
+  - command-line
+abstract: >-
+  Olla-DFT prepares, runs and post-processes Quantum ESPRESSO calculations
+  from the command line: input generation from CIF/POSCAR, band structure and
+  DOS analysis, equation of state, elastic constants, phonons, optics,
+  charges, surfaces, defects, transport, Wannier functions and quality
+  control, with provenance in every output and the underlying physics
+  documented in Spanish and English.

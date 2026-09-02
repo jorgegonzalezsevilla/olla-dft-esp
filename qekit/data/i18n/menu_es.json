@@ -1,0 +1,185 @@
+{
+  "title": "Olla-DFT v{version} — toolkit para Quantum ESPRESSO",
+  "subtitle": "(estilo VASPKIT, pero para pw.x y compañía)",
+  "items": [
+    "r) ¿Es tu primera vez? Recetas: sesiones completas de principio a fin",
+    "p) Crear o abrir un proyecto paso a paso (no necesitas saber comandos)",
+    "a) Guía determinista: dime qué quieres calcular",
+    "t) Teoría: el fundamento físico de cada comando, explicado sin jerga",
+    "c) Catálogo completo por áreas y opciones de cada comando",
+    "",
+    "1) Generar inputs de pw.x (scf, relax, bandas, DOS...)",
+    "2) Post-proceso: bandas, DOS/PDOS y band gap",
+    "3) Módulos de cálculo: convergencia, EOS y elásticas",
+    "4) Propiedades: ópticas, fonones, carga y función trabajo",
+    "5) Materiales laminares: capas, DRX y exfoliación",
+    "6) Información de estructura y simetría",
+    "7) K-path de alta simetría",
+    "8) Herramientas de estructura",
+    "9) Configuración",
+    "0) Salir"
+  ],
+  "choice": "Opción",
+  "goodbye": "¡Hasta luego!",
+  "invalid": "  Opción no válida.",
+  "equivalent": "Equivalente en línea de comandos",
+  "error": "  Error",
+  "catalog_title": "Comandos por área:",
+  "catalog_instruction": "Usa  olla-dft COMANDO --help  para ver todas sus opciones.",
+  "catalog_example": "Ejemplo: olla-dft topology --help",
+  "catalog_groups": {
+    "Primeros pasos": "Primeros pasos",
+    "Estructuras e inputs": "Estructuras e inputs",
+    "Estructura electrónica": "Estructura electrónica",
+    "Espectros y respuesta": "Espectros y respuesta",
+    "Fonones, transporte y temperatura": "Fonones, transporte y temperatura",
+    "Mecánica y estabilidad": "Mecánica y estabilidad",
+    "Superficies, defectos y química": "Superficies, defectos y química",
+    "Automatización y calidad": "Automatización y calidad",
+    "Apariencia y configuración": "Apariencia y configuración",
+    "Proyecto": "Proyecto"
+  },
+  "submenus": {
+    "recipes": {
+      "intro": "Escribe una clave, o cuéntame con tus palabras qué quieres hacer.",
+      "prompt": "Receta o pregunta",
+      "not_found": "No encuentro ninguna receta para eso. Prueba con el asistente (opción a).",
+      "also": "También encajaban",
+      "show": "Te enseño",
+      "also_lower": "también encajaban"
+    },
+    "wizard": {
+      "intro": "Dime qué quieres SABER de tu material, en tus palabras.",
+      "examples": "Por ejemplo: «si absorbe luz», «si es duro», «de qué color es».",
+      "prompt": "Qué quieres saber",
+      "not_found": "No encuentro nada que encaje. Prueba con las recetas (opción r).",
+      "show": "Te cuento",
+      "also_lower": "también encajaban"
+    },
+    "generate": {
+      "items": [
+        "Tipo de cálculo:",
+        "  101) scf          — energía autoconsistente",
+        "  102) relax        — relajación de posiciones",
+        "  103) vc-relax     — relajación de posiciones y celda",
+        "  104) nscf         — no autoconsistente (malla densa)",
+        "  105) bands        — estructura de bandas (scf + bands + bands.x)",
+        "  106) dos          — DOS/PDOS (scf + nscf + dos.x + projwfc.x)",
+        "  107) all          — flujo completo (scf + nscf + bands + DOS)"
+      ],
+      "choice": "Opción",
+      "output": "Carpeta de salida",
+      "insulator": "¿Es aislante/semiconductor? (s/n)",
+      "magnetization": "Magnetización inicial (enter = sin espín; ej. 0.5 o Fe=0.7)",
+      "invalid": "  Opción no válida.",
+      "error": "  Error:"
+    },
+    "structure": {
+      "items": [
+        "401) Información y simetría",
+        "402) Celda primitiva estandarizada",
+        "403) Celda convencional estandarizada",
+        "404) Supercelda",
+        "405) Convertir formato (CIF/POSCAR/XYZ)"
+      ],
+      "choice": "Opción",
+      "file": "Archivo de estructura (CIF/POSCAR/pw.x)",
+      "output": "Archivo de salida",
+      "output_format": "Archivo de salida (extensión decide el formato)",
+      "factors": "Factores nx ny nz",
+      "written": "Escrito",
+      "atoms": "átomos",
+      "invalid": "  Opción no válida.",
+      "error": "  Error:"
+    },
+    "postprocess": {
+      "items": [
+        "201) Estructura de bandas (análisis + datos + gráfica)",
+        "202) DOS / PDOS (análisis + datos + gráfica)",
+        "203) Gráfica combinada bandas + DOS",
+        "204) Solo el band gap (rápido)"
+      ],
+      "choice": "Opción",
+      "path": "Carpeta del cálculo",
+      "output": "Carpeta de salida",
+      "range": "Rango de energía emin emax (eV)",
+      "invalid_range": "  Rango no válido, se usa -6 a 6 eV.",
+      "template": "Plantilla",
+      "journal": "Editorial para el ancho de columna",
+      "label_gap": "¿Anotar el gap dentro de la figura? (s/n)",
+      "invalid": "  Opción no válida.",
+      "error": "  Error:"
+    },
+    "config": {
+      "change": "¿Cambiar algún valor? (s/n)",
+      "key": "Clave",
+      "value": "Nuevo valor para",
+      "saved": "  Guardado.",
+      "error": "  Error:"
+    },
+    "calculation": {
+      "items": [
+        "  1) Convergencia (ecutwfc, ecutrho o malla de k)",
+        "  2) Ecuación de estado (a0, V0, B0)",
+        "  3) Constantes elásticas (Cij, VRH, estabilidad de Born)",
+        "  0) Volver"
+      ],
+      "choice": "Opción",
+      "file": "Archivo de estructura (CIF/POSCAR/pw.x)",
+      "output": "Carpeta de salida",
+      "kind": "Qué converger (ecutwfc/ecutrho/kmesh)",
+      "prepare": "Olla-DFT prepara los inputs; correrlos puede tardar.",
+      "run": "¿Lanzar los cálculos ahora (--run)?",
+      "collect": "¿Ya los corriste y quieres analizarlos (--collect)?"
+    },
+    "properties": {
+      "items": [
+        "  1) Propiedades ópticas: ε(ω), n, k, absorción y Tauc",
+        "  2) Fonones (DFPT): dispersión, DOS y termodinámica",
+        "  3) Densidad de carga / ELF / potencial",
+        "  4) Función trabajo de una losa",
+        "  0) Volver"
+      ],
+      "choice": "Opción",
+      "file": "Archivo de estructura (CIF/POSCAR/pw.x)",
+      "optics_output": "Carpeta de salida",
+      "scissor": "Scissor en eV (gap experimental − gap del cálculo; Enter para ninguno)",
+      "phonons_output": "Carpeta de salida",
+      "gamma": "¿Solo el punto Γ (frecuencias y actividad IR)?",
+      "qgrid": "Malla de q (por ejemplo 2x2x2; Enter para automática)",
+      "charge_output": "Carpeta de salida",
+      "plot": "Qué graficar (density/potential/vtotal/elf/spin)",
+      "work_function_output": "Carpeta de salida",
+      "optics_note": "Recuerda: epsilon.x solo admite pseudos de norma conservada.",
+      "phonons_note": "La estructura debe estar relajada con estos mismos cutoffs.",
+      "run": "¿Lanzar los cálculos ahora (--run)?",
+      "collect": "¿Ya los corriste y quieres analizarlos (--collect)?"
+    },
+    "layered": {
+      "items": [
+        "  1) Detectar capas, espaciado basal y hueco",
+        "  2) Difractograma de polvos simulado",
+        "  3) Energía de exfoliación",
+        "  0) Volver"
+      ],
+      "choice": "Opción",
+      "file": "Archivo de estructura (CIF/POSCAR/pw.x)",
+      "slab": "Escribir la monocapa a un archivo (Enter para no)",
+      "xrd_output": "Carpeta de salida",
+      "radiation": "Radiación (CuKa/CoKa/MoKa o λ en Å)",
+      "size": "Tamaño de cristalito en nm (Enter para no ensanchar)",
+      "experimental": "Difractograma experimental para comparar (Enter para no)",
+      "exfoliation_output": "Carpeta de salida",
+      "vdw": "Corrección de dispersión (grimme-d2/grimme-d3/none)",
+      "run": "¿Lanzar los cálculos ahora (--run)?",
+      "collect": "¿Ya los corriste y quieres analizarlos (--collect)?"
+    },
+    "catalog": {
+      "prompt": "Comando para ver sus opciones (Enter para volver)",
+      "not_found": "  No existe el comando"
+    },
+    "theory": {
+      "prompt": "Comando (vacío = índice)"
+    }
+  }
+}

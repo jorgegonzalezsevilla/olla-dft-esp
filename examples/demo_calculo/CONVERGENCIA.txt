@@ -1,0 +1,16 @@
+--- Resultado de convergencia: Cutoff de funciones de onda ---
+                     punto      E (Ry/celda)    ΔE vs. más denso
+           ecutwfc = 20 Ry      -15.84753652           39.90 meV/át
+           ecutwfc = 30 Ry      -15.85215764            8.46 meV/át
+           ecutwfc = 40 Ry      -15.85301857            2.61 meV/át
+           ecutwfc = 50 Ry      -15.85333433            0.46 meV/át
+           ecutwfc = 60 Ry      -15.85339470            0.05 meV/át
+           ecutwfc = 70 Ry      -15.85340180            0.00 meV/át
+
+CONVERGE en: ecutwfc = 50 Ry
+  A partir de ahí ningún punto se aparta más de 1 meV/átomo del más denso.
+  Úsalo con:  olla-dft gen estructura.cif --ecutwfc 50
+
+Recuerda que la convergencia depende de la propiedad: la energía total
+converge antes que los esfuerzos o los fonones. Para constantes elásticas
+conviene subir el cutoff por encima de lo que pide la energía.

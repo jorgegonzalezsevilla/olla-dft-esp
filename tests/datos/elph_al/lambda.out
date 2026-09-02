@@ -1,0 +1,22 @@
+Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG
+     lambda = 0.017862 (        NaN )  <log w>=      NaN K  N(Ef)=  1.331179 at degauss= 0.005
+     lambda = 0.229450 (        NaN )  <log w>=      NaN K  N(Ef)=  1.887341 at degauss= 0.010
+     lambda = 0.343475 (        NaN )  <log w>=      NaN K  N(Ef)=  2.125490 at degauss= 0.015
+     lambda = 0.360113 (        NaN )  <log w>=      NaN K  N(Ef)=  2.250530 at degauss= 0.020
+     lambda = 0.353925 (        NaN )  <log w>=      NaN K  N(Ef)=  2.329980 at degauss= 0.025
+     lambda = 0.344037 (        NaN )  <log w>=      NaN K  N(Ef)=  2.396057 at degauss= 0.030
+     lambda = 0.335512 (        NaN )  <log w>=      NaN K  N(Ef)=  2.455283 at degauss= 0.035
+     lambda = 0.329525 (        NaN )  <log w>=      NaN K  N(Ef)=  2.507982 at degauss= 0.040
+     lambda = 0.325487 (        NaN )  <log w>=      NaN K  N(Ef)=  2.553108 at degauss= 0.045
+     lambda = 0.322575 (        NaN )  <log w>=      NaN K  N(Ef)=  2.589738 at degauss= 0.050
+lambda        omega_log          T_c
+   0.01786           NaN                NaN
+   0.22945           NaN                NaN
+   0.34348           NaN                NaN
+   0.36011           NaN                NaN
+   0.35392           NaN                NaN
+   0.34404           NaN                NaN
+   0.33551           NaN                NaN
+   0.32953           NaN                NaN
+   0.32549           NaN                NaN
+   0.32258           NaN                NaN

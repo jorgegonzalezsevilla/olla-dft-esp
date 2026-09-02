@@ -1,0 +1,14 @@
+ &inputcond
+    outdir='./out'
+    prefixl='electr'
+    band_file='bands'
+    ikind=0
+    energy0=3.0d0
+    denergy=-0.15d0
+    ewind=1.0d0
+    epsproj=1.0d-03
+    nz1=3
+ /
+    1
+    0.0 0.0 1.0
+    41

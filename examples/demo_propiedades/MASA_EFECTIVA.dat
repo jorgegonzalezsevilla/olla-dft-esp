@@ -1,0 +1,17 @@
+# Masa efectiva
+# Olla-DFT (entonces QEkit 0.7.1) — generado 2026-08-28 06:07 UTC
+# comando: olla-dft effmass /tmp/Si_eq.cif --bands-dir /tmp/bandas_si -o /tmp/mef_cli --pseudo-dir /tmp/pseudo_si --run --pw-cmd /tmp/q-e66/bin/pw.x --nproc 1
+# parámetros: fuente = camino fino dedicado
+# portador    banda      m*/me       R2  pts   dk(A^-1)  direccion
+hueco             4    -0.2693   0.9999   21     0.1200  [100]
+hueco             3    -0.2693   0.9999   21     0.1200  [100]
+hueco             2    -0.1780   1.0000   21     0.1200  [100]
+hueco             4    -2.7152   1.0000   21     0.1200  [110]
+hueco             3    -0.2660   1.0000   21     0.1200  [110]
+hueco             2    -0.1136   0.9999   21     0.1200  [110]
+hueco             4    -0.6705   1.0000   21     0.1200  [111]
+hueco             3    -0.6705   1.0000   21     0.1200  [111]
+hueco             2    -0.1010   0.9999   21     0.1200  [111]
+electrón          5     0.9485   1.0000   21     0.1200  longitudinal
+electrón          5     0.1933   1.0000   21     0.1200  transversal 1
+electrón          5     0.1933   1.0000   21     0.1200  transversal 2

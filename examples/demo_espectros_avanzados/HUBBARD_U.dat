@@ -1,0 +1,7 @@
+Parametros de Hubbard (hp.x)
+Olla-DFT (entonces QEkit 0.12.0) — generado 2026-08-29 01:36 UTC
+comando: olla-dft hubbard /tmp/NiO.cif --collect -o hub2 --qgrid 2x2x2
+parámetros: proyeccion = ortho-atomic; qgrid = 2x2x2; iteraciones = 1
+  convergido = False
+# sitio  especie   U(eV)
+      1       Ni    5.4429

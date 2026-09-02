@@ -1,0 +1,40 @@
+{
+  "lineas": [
+    {
+      "portador": "hueco",
+      "direccion": "[100]",
+      "npts": 21,
+      "kindex": 0
+    },
+    {
+      "portador": "hueco",
+      "direccion": "[110]",
+      "npts": 21,
+      "kindex": 0
+    },
+    {
+      "portador": "hueco",
+      "direccion": "[111]",
+      "npts": 21,
+      "kindex": 0
+    },
+    {
+      "portador": "electrón",
+      "direccion": "longitudinal",
+      "npts": 21,
+      "kindex": 17
+    },
+    {
+      "portador": "electrón",
+      "direccion": "transversal 1",
+      "npts": 21,
+      "kindex": 17
+    },
+    {
+      "portador": "electrón",
+      "direccion": "transversal 2",
+      "npts": 21,
+      "kindex": 17
+    }
+  ]
+}

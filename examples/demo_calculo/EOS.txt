@@ -1,0 +1,28 @@
+--- Ecuación de estado ---
+Puntos válidos: 9 de 9
+
+      V (Å³)       E (Ry/celda)     E (eV/átomo)
+     36.0431     -15.8463980332      -107.800614
+     37.0443     -15.8502205448      -107.826618
+     38.0455     -15.8525421305      -107.842412
+     39.0467     -15.8535463447      -107.849243
+     40.0479     -15.8533947039      -107.848212
+     41.0491     -15.8522297654      -107.840287
+     42.0503     -15.8501773563      -107.826325
+     43.0515     -15.8473490993      -107.807084
+     44.0527     -15.8438437117      -107.783238
+
+                  ecuación    V0 (Å³)   B0 (GPa)     B0′  RMSE (meV/át)
+Birch–Murnaghan (3.er orden)    39.4019      94.21    4.20          0.012
+                 Murnaghan    39.4006      93.89    4.24          0.032
+                     Vinet    39.4025      94.35    4.18          0.003
+
+Resultado (Birch–Murnaghan):
+  V₀ = 39.4019 Å³   (19.7009 Å³/átomo)
+  E₀ = -15.85361512 Ry
+  B₀ = 94.21 GPa
+  B₀′ = 4.20
+  a₀ = 5.40164 Å   (parámetro de red cúbico)
+
+Las tres ecuaciones difieren en 0.5 GPa (0.5 %).
+  Buena señal: el ajuste no depende de la ecuación elegida.
