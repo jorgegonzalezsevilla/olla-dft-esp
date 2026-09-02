@@ -4,9 +4,9 @@
 fonones, constantes elásticas, ópticas y mucho más con calidad de
 publicación — y con la física que hay detrás de cada número, escrita.**
 
-[English version → https://github.com/jorgegonzalezsevilla/olla-dft-en](https://github.com/jorgegonzalezsevilla/olla-dft-en)
+[English version → https://github.com/jorgegonzalezsevilla/olla-dft](https://github.com/jorgegonzalezsevilla/olla-dft)
 
-[![CI](https://github.com/jorgegonzalezsevilla/olla-dft/actions/workflows/ci.yml/badge.svg)](https://github.com/jorgegonzalezsevilla/olla-dft/actions/workflows/ci.yml)
+[![CI](https://github.com/jorgegonzalezsevilla/olla-dft-esp/actions/workflows/ci.yml/badge.svg)](https://github.com/jorgegonzalezsevilla/olla-dft-esp/actions/workflows/ci.yml)
 [![Licencia: GPL v3](https://img.shields.io/badge/licencia-GPL--3.0-blue.svg)](LICENSE)
 ![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue)
 ![Pruebas](https://img.shields.io/badge/pruebas-977%20pasan-brightgreen)
@@ -44,8 +44,8 @@ café de olla.
 ## Instalación
 
 ```bash
-git clone https://github.com/jorgegonzalezsevilla/olla-dft.git
-cd olla-dft
+git clone https://github.com/jorgegonzalezsevilla/olla-dft-esp.git
+cd olla-dft-esp
 python3 -m venv .venv && source .venv/bin/activate   # opcional, pero recomendable
 pip install .
 ```
@@ -112,7 +112,7 @@ Este repositorio es la **versión en español** de Olla-DFT: README, documentaci
 ejemplos y la interfaz por defecto (ayuda de cada comando, menú, inicio guiado,
 recetas, wizard, dashboard, referencia HTML y teoría). La versión en inglés,
 con el mismo código y las mismas pruebas, está en
-[https://github.com/jorgegonzalezsevilla/olla-dft-en](https://github.com/jorgegonzalezsevilla/olla-dft-en).
+[https://github.com/jorgegonzalezsevilla/olla-dft](https://github.com/jorgegonzalezsevilla/olla-dft).
 
 La interfaz también puede mostrarse en inglés sin cambiar de repositorio:
 
@@ -284,7 +284,7 @@ con la salida de `olla-dft report --export incidencias.json`.
 Si Olla-DFT te sirve en tu trabajo, cítalo (ver [CITATION.cff](CITATION.cff)):
 
 > J. E. González Sevilla, *Olla-DFT: a command-line toolkit for Quantum
-> ESPRESSO*, versión 1.0.0 (2026). https://github.com/jorgegonzalezsevilla/olla-dft
+> ESPRESSO*, versión 1.0.0 (2026). https://github.com/jorgegonzalezsevilla/olla-dft-esp
 
 y cita Quantum ESPRESSO y la biblioteca de pseudopotenciales que hayas usado,
 como piden sus autores.

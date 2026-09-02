@@ -3,8 +3,8 @@
 ## Preparar el entorno
 
 ```bash
-git clone https://github.com/jorgegonzalezsevilla/olla-dft
-cd olla-dft
+git clone https://github.com/jorgegonzalezsevilla/olla-dft-esp
+cd olla-dft-esp
 python -m venv .venv && source .venv/bin/activate   # opcional
 pip install -e ".[test]"
 ```
@@ -79,7 +79,7 @@ olla-dft report --export incidencias.json
 ```
 
 y adjunta ese archivo al issue en
-https://github.com/jorgegonzalezsevilla/olla-dft/issues, junto con la
+https://github.com/jorgegonzalezsevilla/olla-dft-esp/issues, junto con la
 estructura si no es confidencial (`--attach archivo.cif` la copia al
 registro). `olla-dft report "qué pasó"` anota algo que no reventó pero
 confundió; `olla-dft report --stats` dice qué comandos fallan más. Nunca se

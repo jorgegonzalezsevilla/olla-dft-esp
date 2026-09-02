@@ -40,9 +40,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/jorgegonzalezsevilla/olla-dft"
-Documentation = "https://github.com/jorgegonzalezsevilla/olla-dft/tree/main/docs"
-Issues = "https://github.com/jorgegonzalezsevilla/olla-dft/issues"
+Homepage = "https://github.com/jorgegonzalezsevilla/olla-dft-esp"
+Documentation = "https://github.com/jorgegonzalezsevilla/olla-dft-esp/tree/main/docs"
+Issues = "https://github.com/jorgegonzalezsevilla/olla-dft-esp/issues"
 
 [project.scripts]
 olla-dft = "qekit.cli:main"
