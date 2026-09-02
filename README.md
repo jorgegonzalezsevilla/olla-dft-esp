@@ -1,15 +1,33 @@
-# Olla-DFT
+<h1 align="center">Olla-DFT</h1>
 
-**Toolkit de línea de comandos para Quantum ESPRESSO: de un CIF a bandas,
+<p align="center">
+<b>Toolkit de línea de comandos para Quantum ESPRESSO: de un CIF a bandas,
 fonones, constantes elásticas, ópticas y mucho más con calidad de
-publicación — y con la física que hay detrás de cada número, escrita.**
+publicación, y con la física que hay detrás de cada número, escrita.</b>
+</p>
 
-[English version → https://github.com/jorgegonzalezsevilla/olla-dft](https://github.com/jorgegonzalezsevilla/olla-dft)
+<p align="center">
+<a href="https://github.com/jorgegonzalezsevilla/olla-dft-esp/actions/workflows/ci.yml"><img src="https://github.com/jorgegonzalezsevilla/olla-dft-esp/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+<a href="LICENSE"><img src="https://img.shields.io/badge/licencia-GPL--3.0-blue.svg" alt="Licencia: GPL v3"></a>
+<img src="https://img.shields.io/badge/python-3.9%20–%203.13-blue" alt="Python 3.9 a 3.13">
+<img src="https://img.shields.io/badge/pruebas-977-brightgreen" alt="977 pruebas">
+<img src="https://img.shields.io/badge/comandos-78-orange" alt="78 comandos">
+</p>
 
-[![CI](https://github.com/jorgegonzalezsevilla/olla-dft-esp/actions/workflows/ci.yml/badge.svg)](https://github.com/jorgegonzalezsevilla/olla-dft-esp/actions/workflows/ci.yml)
-[![Licencia: GPL v3](https://img.shields.io/badge/licencia-GPL--3.0-blue.svg)](LICENSE)
-![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue)
-![Pruebas](https://img.shields.io/badge/pruebas-977%20pasan-brightgreen)
+<p align="center">
+<a href="https://github.com/jorgegonzalezsevilla/olla-dft">English version</a> ·
+<a href="#instalación">Instalación</a> ·
+<a href="#recorrido-de-cinco-minutos">Recorrido de cinco minutos</a> ·
+<a href="docs/TEORIA.md">Teoría</a> ·
+<a href="docs/COMANDOS.md">Comandos</a> ·
+<a href="examples/">Ejemplos</a>
+</p>
+
+<p align="center">
+<img src="examples/demo_Si/Si_bandas_dos.png" alt="Bandas y DOS del silicio producidas por olla-dft plot" width="720">
+<br>
+<sub>Bandas y DOS del silicio a partir de una corrida real de Quantum ESPRESSO, con un solo comando: <code>olla-dft plot .</code></sub>
+</p>
 
 Olla-DFT hace para [Quantum ESPRESSO](https://www.quantum-espresso.org) lo
 que VASPKIT hace para VASP: lee tu estructura (CIF, POSCAR o un input de
@@ -21,12 +39,35 @@ band gap, bandas, DOS/PDOS, ecuación de estado, constantes elásticas, fonones,
 de Wannier y una larga lista de propiedades derivadas, cada una exportada en
 una tabla con su procedencia y dibujada como figura de revista.
 
-Lo escribió en México Jorge Enrique González Sevilla. El nombre conserva el
-guiño al café de Quantum ESPRESSO y le da una identidad propia: la olla del
-café de olla.
+## Sobre este proyecto
+
+Olla-DFT es un **proyecto personal de una sola persona, hecho como
+pasatiempo**. Lo escribe, lo prueba y lo mantiene Jorge Enrique González
+Sevilla en sus ratos libres, a partir de una necesidad propia: una sola
+herramienta que lleve un flujo de trabajo de Quantum ESPRESSO desde el archivo
+de estructura hasta la figura sin una pila de scripts sueltos, y que explique
+la física que aplica en lugar de esconderla. No está afiliado a ninguna
+universidad, instituto de investigación ni empresa, no recibe financiamiento
+de nadie y no es parte oficial de Quantum ESPRESSO.
+
+Como es el trabajo de una persona en su tiempo libre, se siguen algunas cosas:
+
+- **Las versiones salen cuando salen.** No hay hoja de ruta con fechas.
+- **El código no está abierto a commits externos.** No se aceptan pull
+  requests; el autor es y seguirá siendo el único que le mete mano al código.
+  Lo que sí es muy bienvenido es tu retroalimentación: fallos, números
+  equivocados e ideas de funciones, como
+  [issues](https://github.com/jorgegonzalezsevilla/olla-dft-esp/issues).
+- **Todo es software libre.** GPL-3.0, sin telemetría, nunca se envía nada a
+  ningún sitio. Clónalo, léelo, córrelo, bifúrcalo bajo la licencia.
+
+El nombre conserva el guiño al café de Quantum ESPRESSO y le da una identidad
+propia: la olla del café de olla. Se hace con cariño desde Guadalajara,
+Jalisco, México.
 
 ## Contenido
 
+- [Sobre este proyecto](#sobre-este-proyecto)
 - [Instalación](#instalación)
 - [Recorrido de cinco minutos](#recorrido-de-cinco-minutos)
 - [Dos idiomas](#dos-idiomas)
@@ -37,7 +78,7 @@ café de olla.
 - [Validación](#validación)
 - [Documentación](#documentación)
 - [Requisitos y plataformas](#requisitos-y-plataformas)
-- [Pruebas y contribuciones](#pruebas-y-contribuciones)
+- [Pruebas y retroalimentación](#pruebas-y-retroalimentación)
 - [Cómo citar](#cómo-citar)
 - [Licencia](#licencia)
 
@@ -193,8 +234,8 @@ olla-dft teoria elastic         # un comando
 olla-dft teoria --all -o teoria.md
 ```
 
-El mismo texto está publicado en [docs/TEORIA.md](docs/TEORIA.md) (español)
-y [docs/TEORIA.md](docs/TEORIA.md) (inglés).
+El mismo texto está publicado en [docs/TEORIA.md](docs/TEORIA.md); la versión
+en inglés vive en el [repositorio en inglés](https://github.com/jorgegonzalezsevilla/olla-dft).
 
 ## Reproducibilidad y control de calidad
 
@@ -232,6 +273,12 @@ daltonismo validadas en OKLab y un modo monocromo para las revistas que
 cobran el color. Ver `olla-dft templates list` y la galería en
 [examples/plantillas](examples/plantillas).
 
+<p align="center">
+<img src="examples/plantillas/galeria_plantillas.png" alt="La misma figura en todas las plantillas visuales" width="760">
+<br>
+<sub>La misma figura del silicio en las plantillas <code>journal</code>, <code>latex</code>, <code>minimal</code>, <code>dark</code>, <code>slides</code>, <code>poster</code> y <code>mono</code>.</sub>
+</p>
+
 ## Validación
 
 El ciclo completo (generar → correr QE → post-procesar) se validó de extremo a
@@ -244,6 +291,13 @@ RTA, regla de suma f de ε₂ cumplida al 0.1 %, posiciones de picos de DRX a
 menos de 0.05° de las fichas PDF. La lista completa, con referencias, está en
 [docs/VALIDACION.md](docs/VALIDACION.md). La carpeta [examples/](examples/)
 contiene salidas y figuras reales, no maquetas.
+
+<p align="center">
+<img src="examples/demo_propiedades/fonones_Si.png" alt="Dispersión de fonones y DOS del silicio" width="360">
+<img src="examples/demo_calculo/elastic.png" alt="Constantes elásticas del silicio" width="360">
+<br>
+<sub>Izquierda: fonones DFPT del silicio (<code>olla-dft phonons</code>). Derecha: constantes elásticas (<code>olla-dft elastic</code>).</sub>
+</p>
 
 ## Documentación
 
@@ -267,16 +321,19 @@ tddfpt pwcond`) y Olla-DFT dice el `make` exacto cuando falta alguno. Los
 detalles, incluida la historia de la codificación de la consola de Windows y
 `--ascii`, están en [docs/PLATAFORMAS.md](docs/PLATAFORMAS.md).
 
-## Pruebas y contribuciones
+## Pruebas y retroalimentación
 
 ```bash
 pip install -e ".[test]"
-python -m pytest -q          # 977 pruebas, ~35 s, sin necesitar QE (las salidas reales están en tests/datos/)
+python -m pytest -q          # 977 pruebas, ~30 s, sin necesitar QE (las salidas reales están en tests/datos/)
 python -m pyflakes qekit tests
 ```
 
-Los reportes de fallos, las preguntas y los pull requests son bienvenidos;
-ver [CONTRIBUTING.md](CONTRIBUTING.md). Un reporte de fallo es mucho más útil
+Olla-DFT lo escribe y mantiene una sola persona y no acepta pull requests.
+Los reportes de fallos, las preguntas y las peticiones de funciones son muy
+bienvenidos como
+[issues](https://github.com/jorgegonzalezsevilla/olla-dft-esp/issues); ver
+[CONTRIBUTING.md](CONTRIBUTING.md). Un reporte de fallo es mucho más útil
 con la salida de `olla-dft report --export incidencias.json`.
 
 ## Cómo citar
@@ -299,3 +356,10 @@ Depende de numpy, scipy, matplotlib, ASE, spglib y seekpath, incluye la tabla
 de factores de dispersión atómica de pymatgen (MIT) y ejecuta Quantum
 ESPRESSO como proceso aparte; ver
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+---
+
+<p align="center">
+Hecho con cariño desde Guadalajara, Jalisco, México.<br>
+<sub>Un proyecto de una sola persona, en tiempo libre, por el gusto de hacer bien la física.</sub>
+</p>
