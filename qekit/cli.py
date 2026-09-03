@@ -58,11 +58,31 @@ def _prepare_matplotlib_cache() -> None:
 
 
 _prepare_matplotlib_cache()
-from qekit.core import style as qstyle
-from qekit.core import themes as qthemes
 from qekit.modules import inputgen
-from qekit.modules import strain as strain_mod
-from qekit.modules import defects as defects_mod
+
+
+class _Perezoso:
+    """Módulo que se importa en el primer uso.
+
+    matplotlib (estilo y temas), strain y defects no hacen falta para la mayoría
+    de los comandos; importarlos siempre costaba ~0.1 s por invocación.
+    """
+
+    def __init__(self, nombre):
+        self._nombre = nombre
+        self._mod = None
+
+    def __getattr__(self, attr):
+        if self._mod is None:
+            import importlib
+            self._mod = importlib.import_module(self._nombre)
+        return getattr(self._mod, attr)
+
+
+qstyle = _Perezoso("qekit.core.style")
+qthemes = _Perezoso("qekit.core.themes")
+strain_mod = _Perezoso("qekit.modules.strain")
+defects_mod = _Perezoso("qekit.modules.defects")
 
 WAVE_CHOICES = ("CuKa", "CuKa1", "CoKa", "MoKa", "FeKa", "CrKa", "AgKa")
 _MENU_I18N_DIR = Path(__file__).resolve().parent / "data" / "i18n"
@@ -166,6 +186,8 @@ def _add_gen_parser(sub):
         help="densidad de la malla k (gamma/coarse/medium/fine/very-fine)",
     )
     p.add_argument("--kspacing", type=float, help="espaciado k en Å^-1 (anula --klevel)")
+    p.add_argument("--kgrid", type=int, nargs=3, metavar="N",
+                   help="malla k explícita para scf/relax (tres enteros; anula --kspacing y --klevel)")
     p.add_argument("--band-points", type=int, help="puntos por segmento del k-path")
     p.add_argument("--ecutwfc", type=float, help="cutoff de funciones de onda (Ry)")
     p.add_argument("--ecutrho", type=float, help="cutoff de densidad (Ry)")
@@ -432,6 +454,7 @@ def _cmd_gen(args) -> int:
         preset=args.preset,
         outdir=args.outdir,
         kspacing=kspacing,
+        kgrid=tuple(args.kgrid) if getattr(args, "kgrid", None) else None,
         kspacing_nscf=float(cfg["kspacing_nscf"]),
         band_points=args.band_points or int(cfg["band_points"]),
         ecutwfc=args.ecutwfc,

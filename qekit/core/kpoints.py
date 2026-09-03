@@ -19,7 +19,6 @@
 from dataclasses import dataclass, field
 
 import numpy as np
-import seekpath
 from ase import Atoms
 
 from qekit.core import structure
@@ -107,6 +106,8 @@ def get_kpath(atoms: Atoms, symprec: float = structure.SYMPREC) -> KPath:
     primitiva estandarizada que devuelve seekpath, no a la celda original.
     Los inputs de bandas deben generarse con esa celda primitiva.
     """
+    import seekpath  # perezoso: arrastra scipy.spatial (~0.15 s) y solo lo usa el k-path
+
     res = seekpath.get_path(structure.to_spglib_cell(atoms), symprec=symprec)
     prim = structure.from_spglib_cell(
         (res["primitive_lattice"], res["primitive_positions"], res["primitive_types"])

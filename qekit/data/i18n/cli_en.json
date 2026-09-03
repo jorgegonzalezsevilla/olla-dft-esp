@@ -635,6 +635,7 @@
     "El comando falló; Olla-DFT no se modificó más allá de este paso.": "The command failed; Olla-DFT was not modified beyond this step.",
     "Listo. Abre una terminal nueva y comprueba con": "Done. Open a new terminal and check with",
     "¿Actualizar ahora? [s/N] ": "Update now? [y/N] ",
-    "No se hizo nada.": "Nothing was done."
+    "No se hizo nada.": "Nothing was done.",
+    "malla k explícita para scf/relax (tres enteros; anula --kspacing y --klevel)": "explicit k-grid for scf/relax (three integers; overrides --kspacing and --klevel)"
   }
 }

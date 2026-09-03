@@ -2,6 +2,19 @@
 
 Todos los cambios relevantes de Olla-DFT. Las fechas son ISO 8601.
 
+## 1.1.0 — 2026-09-03
+
+Cambios motivados por las primeras corridas de la comparativa (olla-dft-bench):
+
+- Arrancar cuesta unas 8 veces menos: `import qekit.cli` pasó de ~0.6 s a
+  ~0.07 s. seekpath, ase.io, matplotlib, strain y defects se importan al
+  primer uso y no en cada invocación.
+- `gen --kgrid N N N`: malla k explícita para scf/relax (anula `--kspacing` y
+  `--klevel`). Hasta ahora solo se podía dar un espaciado.
+- `mixing_beta` es 0.7 (el valor por omisión de QE) con ocupaciones fijas y
+  sigue en 0.4 con smearing. En la celda de Si de la comparativa el scf pasa
+  de 14 a unas 7 iteraciones con la misma energía.
+
 ## 1.0.1 — 2026-09-03
 
 - Nuevo `olla-dft update` (alias `actualizar`): consulta la última versión

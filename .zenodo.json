@@ -1,6 +1,6 @@
 {
   "title": "Olla-DFT: herramienta de línea de comandos para Quantum ESPRESSO",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "upload_type": "software",
   "license": "GPL-3.0-or-later",
   "language": "spa",

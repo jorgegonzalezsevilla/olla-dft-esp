@@ -194,7 +194,8 @@ científicos que imprimen los comandos de análisis están en español.
 Algunos puntos fuertes:
 
 - **Inputs que corren sin editar.** Presets para scf, relax, vc-relax, nscf,
-  bandas, DOS, MD; cutoffs leídos del encabezado de los UPF; polarización de
+  bandas, DOS, MD; cutoffs leídos del encabezado de los UPF; malla k por
+  espaciado o explícita (`--kgrid 6 6 4`); polarización de
   espín, DFT+U (en las dos sintaxis de QE), espín-órbita con verificación de
   los pseudopotenciales, funcionales híbridos, corrección dipolar.
 - **Post-proceso de lo que QE ya dejó.** Gap (directo/indirecto, VBM/CBM, por
@@ -355,7 +356,7 @@ con la salida de `olla-dft report --export incidencias.json`.
 Si Olla-DFT te sirve en tu trabajo, cítalo (ver [CITATION.cff](CITATION.cff)):
 
 > J. E. González Sevilla, *Olla-DFT: a command-line toolkit for Quantum
-> ESPRESSO*, versión 1.0.1 (2026). Zenodo. https://doi.org/10.5281/zenodo.22263121
+> ESPRESSO*, versión 1.1.0 (2026). Zenodo. https://doi.org/10.5281/zenodo.22263121
 
 y cita Quantum ESPRESSO y la biblioteca de pseudopotenciales que hayas usado,
 como piden sus autores.

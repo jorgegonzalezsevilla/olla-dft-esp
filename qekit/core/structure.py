@@ -16,9 +16,18 @@ from pathlib import Path
 
 import spglib
 from ase import Atoms
-from ase.io import read as ase_read
-from ase.io import write as ase_write
 from qekit.core.errors import ErrorDeUso
+
+
+def _ase_read(*args, **kwargs):
+    """ase.io se importa al usarlo: cuesta ~0.2 s y no todo comando lee archivos."""
+    from ase.io import read
+    return read(*args, **kwargs)
+
+
+def _ase_write(*args, **kwargs):
+    from ase.io import write
+    return write(*args, **kwargs)
 
 SYMPREC = 1e-4  # tolerancia de simetría (Å)
 
@@ -31,9 +40,9 @@ def load(filename: str) -> Atoms:
     name = path.name.upper()
     try:
         if name.startswith(("POSCAR", "CONTCAR")):
-            atoms = ase_read(path, format="vasp")
+            atoms = _ase_read(path, format="vasp")
         else:
-            atoms = ase_read(path)
+            atoms = _ase_read(path)
     except Exception as exc:                            # noqa: BLE001
         # ASE adivina el formato por el contenido y, si se le pasa un .dat
         # o una tabla, revienta con un error interno que no dice nada al
@@ -129,9 +138,9 @@ def convert(atoms: Atoms, outfile: str) -> str:
         path.parent.mkdir(parents=True, exist_ok=True)
     name = path.name.upper()
     if name.startswith(("POSCAR", "CONTCAR")) or path.suffix.lower() == ".vasp":
-        ase_write(path, atoms, format="vasp", direct=True, sort=True)
+        _ase_write(path, atoms, format="vasp", direct=True, sort=True)
     else:
-        ase_write(path, atoms)
+        _ase_write(path, atoms)
     return str(path)
 
 

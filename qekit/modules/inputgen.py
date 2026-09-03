@@ -128,6 +128,7 @@ class GenOptions:
     preset: str = "scf"
     outdir: str = "."            # carpeta donde se escriben los archivos
     kspacing: float = 0.20       # malla scf (Å^-1, incluye 2π)
+    kgrid: tuple = None          # malla scf explícita (n1, n2, n3); anula kspacing
     kspacing_nscf: float = 0.12  # malla nscf/DOS
     band_points: int = 20        # puntos por segmento del k-path
     ecutwfc: float = None        # None => automático (UPF o defaults)
@@ -450,9 +451,12 @@ def build_pw_input(
         system["smearing"] = smearing
         system["degauss"] = degauss
 
+    # mixing_beta: 0.7 (valor por omisión de QE) converge en menos iteraciones
+    # en aislantes con ocupaciones fijas; 0.4 sigue siendo la opción prudente
+    # con smearing, donde la oscilación de carga es el riesgo real.
     electrons = {
         "conv_thr": conv_thr,
-        "mixing_beta": 0.4,
+        "mixing_beta": 0.7 if (insulator and not tetrahedra) else 0.4,
         "electron_maxstep": 200,
     }
 
@@ -678,7 +682,7 @@ def generate(atoms: Atoms, opts: GenOptions) -> str:
                   + ("  (automático)" if not opts.ecutwfc else ""))
 
     # --- mallas de k-points ---
-    grid_scf = kpoints.kgrid_from_spacing(work_atoms, opts.kspacing)
+    grid_scf = tuple(opts.kgrid) if opts.kgrid else kpoints.kgrid_from_spacing(work_atoms, opts.kspacing)
     grid_nscf = kpoints.kgrid_from_spacing(work_atoms, opts.kspacing_nscf)
     report.append(f"Malla k (scf):  {grid_scf[0]} x {grid_scf[1]} x {grid_scf[2]}")
     if preset in ("nscf", "dos", "all"):
