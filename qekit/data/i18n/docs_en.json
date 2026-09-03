@@ -207,6 +207,7 @@
     "phonons": "DFPT phonon dispersion, DOS, thermodynamics and IR",
     "templates": "list, show or export templates",
     "config": "view or change configuration",
-    "teoria": "the physics behind a command: what it answers, the formulas it implements, which module they come from and where each number comes from"
+    "teoria": "the physics behind a command: what it answers, the formulas it implements, which module they come from and where each number comes from",
+    "update": "check for a newer Olla-DFT and install it after confirmation"
   }
 }

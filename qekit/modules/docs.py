@@ -66,7 +66,7 @@ GRUPOS = [
     ("Salida", "Lo que se entrega al final.",
      ["datasheet", "docs"]),
     ("Ayuda", "Para cuando no sabes qué comando buscar.",
-     ["start", "wizard", "recetas", "teoria", "sistema"]),
+     ["start", "wizard", "recetas", "teoria", "sistema", "update"]),
     ("Proyecto", "Organizar y validar un proyecto reproducible.",
      ["project"]),
 ]
@@ -89,6 +89,7 @@ MODULO_DE = {
     "berry": "berry",
     "kappa": "kappa", "esm": "esm",
     "recetas": "recipes", "sistema": "plataforma", "teoria": "theory",
+    "update": "update",
     "start": "onboarding",
     "project": "project",
     "compare": "compare", "tune": "tuning",

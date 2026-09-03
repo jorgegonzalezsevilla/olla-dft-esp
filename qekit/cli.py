@@ -93,7 +93,8 @@ GRUPO_EJECUCION = "ejecución"
 GRUPO_DFT = "parámetros DFT"
 
 # Nombres alternativos en inglés de los subcomandos con nombre en español.
-ALIASES = {"system": "sistema", "recipes": "recetas", "theory": "teoria"}
+ALIASES = {"system": "sistema", "recipes": "recetas", "theory": "teoria",
+           "actualizar": "update"}
 
 PRESET_MENU = {
     "101": "scf",
@@ -111,7 +112,7 @@ PRESET_MENU = {
 # vez: tests/test_cli_catalog.py protege esta tabla contra olvidos al crecer.
 COMMAND_GROUPS = (
     ("Primeros pasos", ("start", "wizard", "recetas", "teoria", "docs",
-                         "sistema", "selftest")),
+                         "sistema", "selftest", "update")),
     ("Estructuras e inputs", ("gen", "info", "kpath", "prim", "conv",
                               "supercell", "convert")),
     ("Estructura electrónica", ("bands", "dos", "plot", "gap", "fermi",
@@ -2582,6 +2583,12 @@ def _cmd_sistema(args) -> int:
     return 0
 
 
+def _cmd_update(args) -> int:
+    from qekit.modules import update
+
+    return update.run(check_only=args.check, yes=args.yes, target=args.version)
+
+
 def _cmd_recetas(args) -> int:
     from qekit.modules import recipes as rec
 
@@ -4434,6 +4441,17 @@ def build_parser(language=None) -> argparse.ArgumentParser:
                             "dónde guarda la configuración, qué binarios de "
                             "QE encuentra y cómo lanzar los cálculos aquí")
 
+    p = sub.add_parser("update", aliases=["actualizar"],
+                       help="comprobar si hay una versión nueva de Olla-DFT y, "
+                            "si la hay, instalarla con una confirmación; nunca "
+                            "se ejecuta solo")
+    p.add_argument("--check", action="store_true",
+                   help="solo comprobar e informar, sin instalar nada")
+    p.add_argument("--yes", action="store_true",
+                   help="no preguntar; instalar directamente si hay versión nueva")
+    p.add_argument("--version", metavar="TAG",
+                   help="instalar una versión concreta (p. ej. v1.0.1) en vez de la última")
+
     p = sub.add_parser("start",
                        help="inicio guiado para crear un proyecto sin conocer la CLI")
     p.add_argument("--project", default=".", help="carpeta del proyecto")
@@ -5252,6 +5270,7 @@ _DISPATCH = {
     "unfold": _cmd_unfold,
     "elph": _cmd_elph,
     "sistema": _cmd_sistema,
+    "update": _cmd_update,
     "teoria": _cmd_teoria,
     "recetas": _cmd_recetas,
     "wizard": _cmd_wizard,

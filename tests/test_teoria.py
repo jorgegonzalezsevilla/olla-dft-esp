@@ -14,13 +14,13 @@ RAIZ = Path(__file__).resolve().parent.parent
 SIN_FISICA = {
     "start", "wizard", "recetas", "teoria", "docs", "sistema", "templates",
     "config", "project", "results", "campaign", "compare", "report",
-    "datasheet", "convert",
+    "datasheet", "convert", "update",
 }
 
 
 def _comandos_cli():
     sub = build_parser("es")._subparsers._group_actions[0]
-    return set(sub.choices) - set(("system", "recipes", "theory"))
+    return set(sub.choices) - set(("system", "recipes", "theory", "actualizar"))
 
 
 def test_todos_los_comandos_cientificos_tienen_fundamento():

@@ -2,6 +2,17 @@
 
 Todos los cambios relevantes de Olla-DFT. Las fechas son ISO 8601.
 
+## 1.0.1 — 2026-09-03
+
+- Nuevo `olla-dft update` (alias `actualizar`): consulta la última versión
+  publicada en GitHub, muestra las novedades y los comandos exactos que
+  ejecutaría, e instala solo tras confirmar (`--check` para solo mirar,
+  `--yes` para no preguntar, `--version TAG` para una versión concreta).
+  Funciona con instalaciones hechas con pip desde GitHub y con clones
+  locales. Olla-DFT nunca busca actualizaciones por su cuenta.
+- Enlace a la comparativa reproducible frente a ASE, pymatgen y seekpath
+  (olla-dft-bench).
+
 ## 1.0.0 — 2026-09-02
 
 Primera versión pública (GPL-3.0).

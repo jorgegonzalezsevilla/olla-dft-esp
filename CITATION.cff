@@ -2,13 +2,13 @@ cff-version: 1.2.0
 message: "If you use Olla-DFT in your research, please cite it as below."
 type: software
 title: "Olla-DFT: a command-line toolkit for Quantum ESPRESSO"
-version: 1.0.0
-date-released: 2026-09-02
-doi: 10.5281/zenodo.22263122
+version: 1.0.1
+date-released: 2026-09-03
+doi: 10.5281/zenodo.22263121
 identifiers:
   - type: doi
-    value: 10.5281/zenodo.22263121
-    description: "Concept DOI (todas las versiones)"
+    value: 10.5281/zenodo.22263122
+    description: "DOI de la versión 1.0.0"
 license: GPL-3.0
 repository-code: "https://github.com/jorgegonzalezsevilla/olla-dft-esp"
 authors:

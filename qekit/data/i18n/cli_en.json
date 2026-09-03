@@ -617,6 +617,24 @@
     "comando a explicar; sin nada, el índice": "command to explain; with nothing, the index",
     "el documento completo (todas las áreas)": "the full document (all areas)",
     "guardarlo en Markdown en vez de imprimirlo": "save it as Markdown instead of printing it",
-    "plantilla del comando olla-dft; campos: {eje}, {index}, {id}, {structure}": "olla-dft command template; fields: {eje}, {index}, {id}, {structure}"
+    "plantilla del comando olla-dft; campos: {eje}, {index}, {id}, {structure}": "olla-dft command template; fields: {eje}, {index}, {id}, {structure}",
+    "comprobar si hay una versión nueva de Olla-DFT y, si la hay, instalarla con una confirmación; nunca se ejecuta solo": "check whether a newer Olla-DFT is published and, if so, install it after a confirmation; it never runs on its own",
+    "solo comprobar e informar, sin instalar nada": "only check and report, install nothing",
+    "no preguntar; instalar directamente si hay versión nueva": "do not ask; install directly if a newer version exists",
+    "instalar una versión concreta (p. ej. v1.0.1) en vez de la última": "install a specific version (e.g. v1.0.1) instead of the latest",
+    "no se pudo consultar la última versión en GitHub": "could not query the latest version on GitHub",
+    "Comprueba la conexión o mira": "Check the connection or see",
+    "Olla-DFT ya está en la última versión": "Olla-DFT is already at the latest version",
+    "Instalado desde un clon local; se actualizará ese clon a": "Installed from a local clone; that clone will be updated to",
+    "Se instalará con pip desde GitHub, etiqueta": "It will be installed with pip from GitHub, tag",
+    "--- Actualización de Olla-DFT ---": "--- Olla-DFT update ---",
+    "Versión instalada:": "Installed version:",
+    "Última publicada:": "Latest published:",
+    "Novedades:": "What's new:",
+    "Comandos que se ejecutarían:": "Commands that would run:",
+    "El comando falló; Olla-DFT no se modificó más allá de este paso.": "The command failed; Olla-DFT was not modified beyond this step.",
+    "Listo. Abre una terminal nueva y comprueba con": "Done. Open a new terminal and check with",
+    "¿Actualizar ahora? [s/N] ": "Update now? [y/N] ",
+    "No se hizo nada.": "Nothing was done."
   }
 }

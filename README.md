@@ -12,7 +12,7 @@ publicación, y con la física que hay detrás de cada número, escrita.</b>
 <a href="https://doi.org/10.5281/zenodo.22263121"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22263121.svg" alt="DOI"></a>
 <img src="https://img.shields.io/badge/python-3.9%20–%203.13-blue" alt="Python 3.9 a 3.13">
 <img src="https://img.shields.io/badge/pruebas-977-brightgreen" alt="977 pruebas">
-<img src="https://img.shields.io/badge/comandos-78-orange" alt="78 comandos">
+<img src="https://img.shields.io/badge/comandos-79-orange" alt="79 comandos">
 </p>
 
 <p align="center">
@@ -108,6 +108,10 @@ olla-dft config set pseudo_dir ~/pseudos/SSSP_efficiency
 olla-dft sistema        # qué ve Olla-DFT en esta máquina: binarios de QE, MPI, codificación
 ```
 
+Para actualizar una instalación existente, ejecuta `olla-dft update`: muestra la última versión
+publicada y qué cambió, y la instala solo si dices que sí (`--check` solo mira; `--yes` no
+pregunta). Olla-DFT nunca busca actualizaciones por su cuenta.
+
 Extras opcionales: `pip install "olla-dft[mlip]"` para potenciales
 aprendidos (MACE, ~1.2 GB) y `pip install "olla-dft[kappa]"` para la
 conductividad térmica de red (phono3py).
@@ -171,12 +175,12 @@ científicos que imprimen los comandos de análisis están en español.
 
 ## Qué hace
 
-78 subcomandos agrupados por tarea. `olla-dft --help` muestra el catálogo y
+79 subcomandos agrupados por tarea. `olla-dft --help` muestra el catálogo y
 [docs/COMANDOS.md](docs/COMANDOS.md) lista todas las opciones.
 
 | Área | Comandos |
 |---|---|
-| Primeros pasos | `start`, `wizard`, `recetas`, `teoria`, `docs`, `sistema`, `selftest` |
+| Primeros pasos | `start`, `wizard`, `recetas`, `teoria`, `docs`, `sistema`, `selftest`, `update` |
 | Estructuras e inputs | `gen`, `info`, `kpath`, `prim`, `conv`, `supercell`, `convert` |
 | Estructura electrónica | `bands`, `dos`, `plot`, `gap`, `fermi`, `effmass`, `wannier`, `unfold`, `topology`, `hubbard` |
 | Espectros y respuesta | `optics`, `tddft`, `xanes`, `xps`, `corehole`, `charge`, `charges`, `wf`, `berry` |
@@ -351,7 +355,7 @@ con la salida de `olla-dft report --export incidencias.json`.
 Si Olla-DFT te sirve en tu trabajo, cítalo (ver [CITATION.cff](CITATION.cff)):
 
 > J. E. González Sevilla, *Olla-DFT: a command-line toolkit for Quantum
-> ESPRESSO*, versión 1.0.0 (2026). Zenodo. https://doi.org/10.5281/zenodo.22263122
+> ESPRESSO*, versión 1.0.1 (2026). Zenodo. https://doi.org/10.5281/zenodo.22263121
 
 y cita Quantum ESPRESSO y la biblioteca de pseudopotenciales que hayas usado,
 como piden sus autores.
