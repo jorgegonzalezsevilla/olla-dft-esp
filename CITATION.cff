@@ -12,6 +12,9 @@ identifiers:
   - type: doi
     value: 10.5281/zenodo.22287495
     description: "DOI de la versión 1.0.1"
+  - type: doi
+    value: 10.5281/zenodo.22287931
+    description: "DOI de la versión 1.1.0"
 license: GPL-3.0
 repository-code: "https://github.com/jorgegonzalezsevilla/olla-dft-esp"
 authors:
