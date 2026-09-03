@@ -1,0 +1,24 @@
+{
+  "title": "Olla-DFT: herramienta de línea de comandos para Quantum ESPRESSO",
+  "version": "1.0.0",
+  "upload_type": "software",
+  "license": "GPL-3.0-or-later",
+  "language": "spa",
+  "creators": [
+    { "name": "González Sevilla, Jorge Enrique" }
+  ],
+  "description": "<p>Olla-DFT prepara, ejecuta y post-procesa cálculos de Quantum ESPRESSO desde la línea de comandos: generación de inputs a partir de CIF/POSCAR, análisis de estructura de bandas y DOS, ecuación de estado, constantes elásticas, fonones, ópticas, cargas, superficies, defectos, transporte, funciones de Wannier y control de calidad, con procedencia en cada salida y la física subyacente documentada en español e inglés.</p><p>Proyecto personal de una sola persona, hecho como pasatiempo en tiempo libre y sin afiliación a ninguna institución. Hecho con cariño desde Guadalajara, Jalisco, México. Esta es la versión en español; la versión en inglés está en https://github.com/jorgegonzalezsevilla/olla-dft.</p>",
+  "keywords": [
+    "Quantum ESPRESSO",
+    "teoría del funcional de la densidad",
+    "ciencia de materiales",
+    "estructura de bandas",
+    "fonones",
+    "línea de comandos"
+  ],
+  "related_identifiers": [
+    { "identifier": "https://github.com/jorgegonzalezsevilla/olla-dft-esp", "relation": "isSupplementTo", "resource_type": "software", "scheme": "url" },
+    { "identifier": "https://github.com/jorgegonzalezsevilla/olla-dft", "relation": "isVariantFormOf", "resource_type": "software", "scheme": "url" }
+  ],
+  "access_right": "open"
+}
