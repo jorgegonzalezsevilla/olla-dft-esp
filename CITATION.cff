@@ -4,6 +4,11 @@ type: software
 title: "Olla-DFT: a command-line toolkit for Quantum ESPRESSO"
 version: 1.0.0
 date-released: 2026-09-02
+doi: 10.5281/zenodo.22263122
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22263121
+    description: "Concept DOI (todas las versiones)"
 license: GPL-3.0
 repository-code: "https://github.com/jorgegonzalezsevilla/olla-dft-esp"
 authors:
