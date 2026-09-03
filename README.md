@@ -77,6 +77,7 @@ Jalisco, México.
 - [Reproducibilidad y control de calidad](#reproducibilidad-y-control-de-calidad)
 - [Figuras para publicar](#figuras-para-publicar)
 - [Validación](#validación)
+- [Comparativas](#comparativas)
 - [Documentación](#documentación)
 - [Requisitos y plataformas](#requisitos-y-plataformas)
 - [Pruebas y retroalimentación](#pruebas-y-retroalimentación)
@@ -299,6 +300,14 @@ contiene salidas y figuras reales, no maquetas.
 <br>
 <sub>Izquierda: fonones DFPT del silicio (<code>olla-dft phonons</code>). Derecha: constantes elásticas (<code>olla-dft elastic</code>).</sub>
 </p>
+
+## Comparativas
+
+Olla-DFT se compara con ASE, pymatgen y seekpath sobre las mismas entradas, con implementaciones
+de referencia independientes, estadísticas recomputables y una lista de sus puntos débiles
+generada automáticamente. Resultados, protocolo y herramienta están en
+[olla-dft-bench](https://github.com/jorgegonzalezsevilla/olla-dft-bench); cualquiera puede
+repetirlas o añadir otro programa.
 
 ## Documentación
 
