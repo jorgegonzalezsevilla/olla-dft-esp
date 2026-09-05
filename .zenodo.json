@@ -9,7 +9,7 @@
       "name": "González Sevilla, Jorge Enrique"
     }
   ],
-  "description": "Herramienta de línea de comandos para Quantum ESPRESSO: generación de inputs desde CIF/POSCAR, estructura de bandas, DOS, ecuación de estado, constantes elásticas, fonones, ópticas, superficies, defectos, transporte y funciones de Wannier, con procedencia en cada salida. GPL-3.0. La versión 1.2.0 añade un explorador interactivo sin conexión con exportación seleccionada y recuperación de cálculos QE interrumpidos mediante guardados verificados. Se validaron parejas locales pequeñas SCF, relax y vc-relax; no se midieron apagones físicos, reemplazo de VM ni ahorro cloud.<p><a href=\"https://jorgegonzalezsevilla.github.io/olla-dft-bench/publication-1.2.0/\">Galería de resultados / Results gallery</a>: electronic bands, spin DOS, phonons, optical response, equation of state, local recovery validation and an offline interactive demo. Example conditions and provenance are linked with each figure. The source archive includes docs/gallery/ with a downloadable visual guide.</p>",
+  "description": "Herramienta de línea de comandos para Quantum ESPRESSO: generación de inputs desde CIF/POSCAR, estructura de bandas, DOS, ecuación de estado, constantes elásticas, fonones, ópticas, superficies, defectos, transporte y funciones de Wannier, con procedencia en cada salida. GPL-3.0. La versión 1.2.0 añade un explorador interactivo sin conexión con exportación seleccionada y recuperación de cálculos QE interrumpidos mediante guardados verificados. Se validaron parejas locales pequeñas SCF, relax y vc-relax; no se midieron apagones físicos, reemplazo de VM ni ahorro cloud.<p><a href=\"https://jorgegonzalezsevilla.github.io/olla-dft-bench/publication-1.2.0/\">Galería de resultados / Results gallery</a>: electronic bands, spin DOS, phonons, optical response, equation of state, local recovery validation and an offline interactive demo. Example conditions and provenance are linked with each figure. The source archive includes docs/gallery/ with a downloadable visual guide.</p><p><a href=\"https://doi.org/10.5281/zenodo.22315940\">Visual gallery / Galería visual</a>: preview five scientific example figures, download the Spanish/English PDFs, and inspect source conditions and hashes.</p>",
   "keywords": [
     "Quantum ESPRESSO",
     "teoría del funcional de la densidad",
@@ -30,6 +30,12 @@
       "relation": "isVariantFormOf",
       "resource_type": "software",
       "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.22315940",
+      "relation": "isSupplementedBy",
+      "scheme": "doi",
+      "resource_type": "image-figure"
     }
   ],
   "access_right": "open"
