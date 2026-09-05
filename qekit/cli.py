@@ -540,7 +540,11 @@ def _cmd_gap(args) -> int:
 
     bs = bands_mod.load(args.path, prefix=args.prefix)
     print(bands_mod.gap_report(bs))
-    return 0
+    if bs.result.converged is False:
+        return 2
+    return 0 if all(bands_mod.analyze_gap(bs, spin).is_metal or
+                    bands_mod.analyze_gap(bs, spin).gap is not None
+                    for spin in range(bs.result.nspin)) else 2
 
 
 def _cmd_bands(args) -> int:

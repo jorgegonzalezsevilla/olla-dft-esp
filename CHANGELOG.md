@@ -2,6 +2,13 @@
 
 Todos los cambios relevantes de Olla-DFT. Las fechas son ISO 8601.
 
+## 1.1.1 — 2026-09-04
+
+- El análisis de gap distingue bandas insuficientes de metalicidad.
+- Advierte si el cálculo no convergió y devuelve estado de error cuando el gap no está disponible o validado.
+- Rechaza mallas y cutoffs no positivos y parámetros no finitos antes de escribir inputs.
+- Añade regresiones de la auditoría de septiembre.
+
 ## 1.1.0 — 2026-09-03
 
 Cambios motivados por las primeras corridas de la comparativa (olla-dft-bench):

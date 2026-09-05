@@ -600,6 +600,20 @@ def build_run_python_script(input_files: list, nproc: int) -> str:
 # ----------------------------------------------------------------------
 def generate(atoms: Atoms, opts: GenOptions) -> str:
     """Genera todos los archivos del preset y devuelve un reporte legible."""
+    # Validate before creating directories or writing any input.
+    if opts.kgrid is not None:
+        from numbers import Integral
+        if (len(opts.kgrid) != 3 or any(isinstance(n, bool) or
+                not isinstance(n, Integral) or n < 1 for n in opts.kgrid)):
+            raise ErrorDeUso("--kgrid necesita tres enteros positivos")
+    for name in ("ecutwfc", "ecutrho"):
+        value = getattr(opts, name)
+        if value is not None and (not np.isfinite(value) or value <= 0):
+            raise ErrorDeUso(f"--{name} tiene que ser positivo y finito")
+    for name in ("kspacing", "kspacing_nscf"):
+        value = getattr(opts, name)
+        if value is not None and (not np.isfinite(value) or value < 0):
+            raise ErrorDeUso(f"--{name} tiene que ser no negativo y finito")
     cfg = qcfg.load()
     preset = opts.preset
     if preset not in PRESETS:
@@ -652,8 +666,8 @@ def generate(atoms: Atoms, opts: GenOptions) -> str:
     default_wfc = float(cfg["ecutwfc"])
     dual = float(cfg["dual"])
     auto_wfc, auto_rho = pseudo.recommend_cutoffs(pseudos, default_wfc, dual)
-    ecutwfc = opts.ecutwfc if opts.ecutwfc else auto_wfc
-    ecutrho = opts.ecutrho if opts.ecutrho else auto_rho
+    ecutwfc = opts.ecutwfc if opts.ecutwfc is not None else auto_wfc
+    ecutrho = opts.ecutrho if opts.ecutrho is not None else auto_rho
 
     prefix = opts.prefix or work_atoms.get_chemical_formula(
         mode="hill", empirical=True

@@ -24,7 +24,11 @@ tests/test_teoria.py y tests/test_docs.py comprueban que estén al día.
 """
 
 import argparse
+import sys
 from pathlib import Path
+
+# Build this checkout, even when another release is installed in site-packages.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from qekit import __command_name__, __version__
 from qekit.cli import COMMAND_GROUPS, build_parser, _menu_labels
