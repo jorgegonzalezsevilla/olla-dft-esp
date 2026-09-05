@@ -158,13 +158,19 @@ def analyze_gap(bs: BandStructure, spin: int = 0) -> GapInfo:
     energies = res.eigenvalues[spin]          # (nk, nbnd)
     info = GapInfo(spin=spin, fermi=res.fermi)
 
+    if energies.ndim != 2 or not energies.size or not np.isfinite(energies).all():
+        raise FaltanDatos("eigenvalores vacíos o no finitos; no se puede determinar el gap")
+
     # Nivel de referencia para separar bandas ocupadas de vacías
     ref = res.fermi
     if ref is None:
         ref = res.homo
     if ref is None:
         # último recurso: contar electrones
-        n_occ = int(round(res.nelec / 2)) if res.nspin == 1 else None
+        n_occ = int(round(res.nelec / (1 if res.noncolin else 2))) if res.nspin == 1 else None
+        if n_occ and n_occ >= res.nbnd and res.occupations_kind == "fixed":
+            info.vbm = float(energies.max())
+            return info
         if n_occ and 0 < n_occ < res.nbnd:
             ref = 0.5 * (energies[:, n_occ - 1].max() + energies[:, n_occ].min())
         else:
@@ -181,9 +187,12 @@ def analyze_gap(bs: BandStructure, spin: int = 0) -> GapInfo:
     # bandas completamente por debajo / por encima de la referencia
     below = band_max <= ref + CROSS_TOL
     above = band_min > ref - CROSS_TOL
-    if not np.any(below) or not np.any(above):
-        info.is_metal = True
+    if np.any(below) and not np.any(above):
+        # No empty bands is insufficient evidence for a gap, not a metal.
+        info.vbm = float(energies[:, below].max())
         return info
+    if not np.any(below):
+        raise FaltanDatos("no hay bandas ocupadas para determinar el gap")
 
     vb_index = int(np.max(np.where(below)[0]))
     cb_index = int(np.min(np.where(above)[0]))
@@ -226,6 +235,8 @@ def gap_report(bs: BandStructure) -> str:
                  f"puntos k: {res.nk}  |  electrones: {res.nelec:g}")
     if res.fermi is not None:
         lines.append(f"Energía de Fermi: {res.fermi:.4f} eV")
+    if res.converged is False:
+        lines.append("ADVERTENCIA: el cálculo no convergió; el gap no está validado.")
     lines.append("")
 
     for spin in range(res.nspin):
