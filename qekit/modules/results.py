@@ -181,6 +181,13 @@ def _record(run, tag=None) -> dict:
         "files": files,
         "observed": observed,
         "fingerprint": [str(value) for value in result.fingerprint],
+        "parameters": {
+            "functional": result.functional, "ecutwfc_Ry": result.ecutwfc,
+            "ecutrho_Ry": result.ecutrho, "kgrid": result.kgrid,
+            "kshift": getattr(result, "kshift", None), "smearing": result.smearing,
+            "degauss_Ry": result.degauss, "occupations": result.occupations_kind,
+            "nspin": result.nspin,
+        },
         "calculation": result.calculation,
         "functional": result.functional,
         "pseudos": dict(result.pseudo_files),
@@ -305,15 +312,7 @@ def _row(row) -> dict:
     return result
 
 
-def list_results(db_path, formula=None, calculation=None, status=None,
-                 limit=100) -> list:
-    """Lista resultados con filtros parametrizados."""
-    try:
-        limit = max(1, min(int(limit), 10000))
-    except (TypeError, ValueError):
-        raise ErrorDeUso("--limit debe ser un entero positivo.") from None
-    if not Path(db_path).exists():
-        return []
+def _filters(formula=None, calculation=None, status=None):
     clauses, values = [], []
     if formula:
         clauses.append("formula LIKE ?")
@@ -325,6 +324,31 @@ def list_results(db_path, formula=None, calculation=None, status=None,
         clauses.append("status = ?")
         values.append(status)
     where = " WHERE " + " AND ".join(clauses) if clauses else ""
+    return where, values
+
+
+def count_results(db_path, formula=None, calculation=None, status=None):
+    """Count matching records so limited snapshots declare their full scope."""
+    if not Path(db_path).exists():
+        return 0
+    where, values = _filters(formula, calculation, status)
+    connection = sqlite3.connect(str(db_path))
+    try:
+        return connection.execute("SELECT COUNT(*) FROM results" + where, values).fetchone()[0]
+    finally:
+        connection.close()
+
+
+def list_results(db_path, formula=None, calculation=None, status=None,
+                 limit=100) -> list:
+    """Lista resultados con filtros parametrizados."""
+    try:
+        limit = max(1, min(int(limit), 10000))
+    except (TypeError, ValueError):
+        raise ErrorDeUso("--limit debe ser un entero positivo.") from None
+    if not Path(db_path).exists():
+        return []
+    where, values = _filters(formula, calculation, status)
     connection = sqlite3.connect(str(db_path))
     connection.row_factory = sqlite3.Row
     try:

@@ -153,7 +153,7 @@ COMMAND_GROUPS = (
                                   "db", "hull", "mlip", "suggest",
                                   "datasheet", "report", "compare", "tune",
                                   "results", "campaign", "pseudos")),
-    ("Proyecto", ("project",)),
+    ("Proyecto", ("project", "resilient")),
     ("Apariencia y configuración", ("templates", "config")),
 )
 
@@ -2980,7 +2980,11 @@ def _cmd_tune(args) -> int:
 def _cmd_results(args) -> int:
     from qekit.modules import project, results
 
-    root, data = project.load(args.project)
+    if args.action == "explore" and args.db:
+        root = Path(args.project).expanduser().resolve()
+        data = {"name": root.name}
+    else:
+        root, data = project.load(args.project)
     db = Path(args.db).expanduser() if args.db else results.project_db(root)
     action = args.action
     if action == "ingest":
@@ -2996,7 +3000,7 @@ def _cmd_results(args) -> int:
     if action == "list":
         rows = results.list_results(
             db, formula=args.formula, calculation=args.calculation,
-            status=args.status, limit=args.limit)
+            status=args.status, limit=args.limit if args.limit is not None else 100)
         if args.json:
             print(json.dumps(rows, ensure_ascii=False, indent=2))
         else:
@@ -3014,6 +3018,19 @@ def _cmd_results(args) -> int:
             raise ErrorDeUso("results review necesita --review-status.")
         row = results.review(db, args.target, args.review_status, args.note)
         print(json.dumps(row, ensure_ascii=False, indent=2))
+        return 0
+    if action == "explore":
+        from qekit.modules import studio
+        limit = args.limit if args.limit is not None else 10000
+        if not 1 <= limit <= 10000:
+            raise ErrorDeUso("--limit: 1–10000")
+        filters = dict(formula=args.formula, calculation=args.calculation, status=args.status)
+        rows = results.list_results(db, limit=limit, **filters)
+        target = args.output or (root / project.PROJECT_DIR / "reports" / "results.html")
+        target = studio.generate(rows, target, title=data.get("name", root.name),
+                                 language=args.language, total_count=results.count_results(db, **filters),
+                                 order="ingested_desc_path_asc")
+        print(str(target.resolve()))
         return 0
     if action == "export":
         target = args.output or (root / project.PROJECT_DIR / "reports" /
@@ -4521,6 +4538,22 @@ def build_parser(language=None) -> argparse.ArgumentParser:
     p.add_argument("--pseudo", action="append", metavar="EL=UPF",
                    help="forzar un pseudopotencial concreto, por ejemplo Fe=Fe.rel-pbe.UPF. Se puede repetir. Sin esto, Olla-DFT elige con 'olla-dft pseudos'")
 
+    p = sub.add_parser("resilient", help="cálculos QE recuperables ante interrupciones del servidor")
+    p.add_argument("action", choices=["init", "run", "status", "pause", "service"])
+    p.add_argument("target", help="input para init; directorio persistente del trabajo para las demás acciones")
+    p.add_argument("--state", help="directorio nuevo del trabajo en un disco persistente conservado")
+    p.add_argument("--pw-cmd", default="pw.x", help="comando de QE o MPI con paralelismo fijo")
+    p.add_argument("--runtime-id", help="identificador de la imagen inmutable del entorno")
+    p.add_argument("--checkpoint-seconds", type=float, default=900)
+    p.add_argument("--grace-seconds", type=float, default=300)
+    p.add_argument("--max-failures", type=int, default=3)
+    p.add_argument("--threads", type=int, default=1)
+    p.add_argument("--keep", type=int, default=2, help="guardados íntegros que conservar (mínimo 2)")
+    p.add_argument("--max-segments", type=int, default=0, help="detenerse tras este número de segmentos guardados; 0 significa sin límite")
+    p.add_argument("--resume", action="store_true", help="retirar una pausa explícita antes de continuar")
+    p.add_argument("--user", help="usuario sin privilegios del servicio systemd generado")
+    p.add_argument("-o", "--output", help="archivo de servicio generado; se instala por separado")
+
     p = sub.add_parser(
         "project",
         help="gestionar un proyecto reproducible: fuentes, workflow, calidad y dashboard")
@@ -4573,7 +4606,7 @@ def build_parser(language=None) -> argparse.ArgumentParser:
     p = sub.add_parser(
         "results",
         help="ingerir, consultar y exportar resultados normalizados del proyecto")
-    p.add_argument("action", choices=["ingest", "list", "show", "review", "export"])
+    p.add_argument("action", choices=["ingest", "list", "show", "review", "export", "explore"])
     p.add_argument("target", nargs="?",
                    help="ruta de entrada para ingest, o id para show")
     p.add_argument("extra_paths", nargs="*",
@@ -4588,9 +4621,10 @@ def build_parser(language=None) -> argparse.ArgumentParser:
     p.add_argument("--review-status", choices=["unreviewed", "accepted", "rejected"],
                    help="en review, estado de la revisión humana")
     p.add_argument("--note", help="en review, nota que acompaña la decisión")
-    p.add_argument("--limit", type=int, default=100)
+    p.add_argument("--limit", type=int, default=None,
+                   help="máximo de registros: list=100, explore=10000")
     p.add_argument("--json", action="store_true", help="en list, imprimir JSON")
-    p.add_argument("-o", "--output", help="archivo JSON de export")
+    p.add_argument("-o", "--output", help="archivo de salida: export=JSON, explore=HTML interactivo")
 
     p = sub.add_parser(
         "campaign",
@@ -5255,6 +5289,11 @@ def build_parser(language=None) -> argparse.ArgumentParser:
     return parser
 
 
+def _cmd_resilient(args):
+    from qekit.modules import resilient
+    return resilient.cli(args)
+
+
 _DISPATCH = {
     "gen": _cmd_gen,
     "info": _cmd_info,
@@ -5303,6 +5342,7 @@ _DISPATCH = {
     "wizard": _cmd_wizard,
     "start": _cmd_start,
     "project": _cmd_project,
+    "resilient": _cmd_resilient,
     "pseudos": _cmd_pseudos,
     "tddft": _cmd_tddft,
     "ballistic": _cmd_ballistic,

@@ -57,5 +57,7 @@
   "verdict_revisar": "REVISAR",
   "verdict_bloqueado": "BLOQUEADO",
   "chart_aria": "Energía por átomo de los últimos resultados",
-  "chart_range_suffix": "eV/átomo"
+  "chart_range_suffix": "eV/átomo",
+  "explore_results": "Explorar gráficas y exportar",
+  "explore_hint": "Elige datos, ajusta la figura y descarga SVG, PNG, CSV, JSON o una vista interactiva sin conexión."
 }

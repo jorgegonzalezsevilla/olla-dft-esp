@@ -356,7 +356,7 @@ con la salida de `olla-dft report --export incidencias.json`.
 Si Olla-DFT te sirve en tu trabajo, cítalo (ver [CITATION.cff](CITATION.cff)):
 
 > J. E. González Sevilla, *Olla-DFT: a command-line toolkit for Quantum
-> ESPRESSO*, versión 1.1.1 (2026). Zenodo. https://doi.org/10.5281/zenodo.22287496
+> ESPRESSO*, versión 1.2.0 (2026). Zenodo. https://doi.org/10.5281/zenodo.22287496
 
 y cita Quantum ESPRESSO y la biblioteca de pseudopotenciales que hayas usado,
 como piden sus autores.
@@ -378,3 +378,28 @@ ESPRESSO como proceso aparte; ver
 Hecho con cariño desde Guadalajara, Jalisco, México.<br>
 <sub>Un proyecto de una sola persona, en tiempo libre, por el gusto de hacer bien la física.</sub>
 </p>
+
+## Cálculos recuperables
+
+`olla-dft resilient` guarda cálculos pw.x en discos persistentes y permite
+continuar después de una interrupción. Consulta la [guía de recuperación](docs/resilience/RECUPERACION.md)
+y el [contrato con Olla-Lungo](docs/resilience/CONTRACT.md). El reinicio local
+está validado; el reemplazo en Google Cloud y el ahorro necesitan un piloto.
+
+
+### Gráficas interactivas y exportación (1.2.0)
+
+Abre **Explorar gráficas y exportar** desde el dashboard del proyecto, o genera
+el explorador directamente desde los resultados registrados:
+
+```sh
+olla-dft results explore --project ./mi-proyecto -o resultados.html
+```
+
+Abre el HTML en el navegador. Elige métricas, filtra cálculos y selecciona registros;
+personaliza título, color, dimensiones y rango. Descarga SVG editable, PNG, CSV,
+JSON o un HTML interactivo con solo el alcance elegido. La interfaz español/inglés
+funciona sin conexión. Consulta la [guía de resultados](docs/EXPLORADOR-RESULTADOS.md)
+para conocer unidades, incertidumbres y límites.
+
+[Figuras de validación y demostración interactiva](https://jorgegonzalezsevilla.github.io/olla-dft-bench/). Comparaciones locales por parejas; ahorro cloud aún sin medir.

@@ -2,6 +2,22 @@
 
 Todos los cambios relevantes de Olla-DFT. Las fechas son ISO 8601.
 
+## 1.2.0 — 2026-09-04
+
+- Añade un explorador de resultados sin conexión con ejes numéricos, filtros, selección y figuras personalizables.
+- Exporta SVG, PNG, CSV, JSON y HTML interactivo según la selección; conserva unidades, precisión e incertidumbre en los datos.
+- Sustituye la serie de energías unidas del dashboard por el explorador interactivo.
+- Registra malla k y parámetros, advierte sobre métodos mezclados y declara límites de instantáneas y exportaciones.
+
+- Respeta pausas durante restauración, recoge QE si falla el registro del PID y elimina PIDs de estados terminados.
+
+- Añade `resilient init/run/status/pause/service` para cálculos pw.x recuperables.
+- Conserva dos guardados completos verificados y restaura un espacio privado tras cada corte.
+- Congela input, UPFs, MPI, hilos, bibliotecas y arquitectura; limita fallos consecutivos.
+- Genera un servicio Linux para continuar al arrancar con el disco persistente montado.
+- Mide cálculo, restauración y copia para comparar costes con Olla-Lungo sin cambiar la física.
+- Recuperación SCF, relax y vc-relax validada localmente con QE 7.4; reemplazo y ahorro cloud aún sin medir.
+
 ## 1.1.1 — 2026-09-04
 
 - El análisis de gap distingue bandas insuficientes de metalicidad.
