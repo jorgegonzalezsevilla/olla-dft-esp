@@ -2,6 +2,13 @@
 
 Todos los cambios relevantes de Olla-DFT. Las fechas son ISO 8601.
 
+## 1.3.1 — 2026-09-04
+
+- Cargar Matplotlib y buscar fuentes solo al dibujar figuras; los comandos de estructuras y la ayuda conservan sus opciones sin inicializar las gráficas.
+- Separar el ajuste de ecuaciones de estado de las dependencias de preparación de estructuras y dibujo.
+- Verificar en procesos nuevos los comandos en español e inglés, los tres ajustes EOS y la exportación de figuras tras diferir las importaciones.
+- Conservar fórmulas, tolerancias, entradas generadas y competidores del benchmark.
+
 ## 1.3.0 — 2026-09-04
 
 - El software propio pasa a AGPL-3.0-or-later; las versiones anteriores conservan sus condiciones GPL originales.
