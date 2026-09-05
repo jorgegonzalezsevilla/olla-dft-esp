@@ -28,8 +28,6 @@ terms are in [LICENSE](LICENSE); this page explains their scope.
   interaction, you must prominently offer its corresponding source to the
   users interacting with it, as described in AGPL section 13. A modified
   service must offer its own source; linking only to upstream is insufficient.
-- Running a command-line calculation on a cloud VM or through SSH does not,
-  by itself, trigger that additional network-interaction obligation.
 - Your scientific data, numerical results and papers do not become AGPL
   merely because you use Olla. Interactive HTML exports also contain program
   code: its AGPL notice, full license and versioned source link travel with it.
@@ -58,8 +56,6 @@ están completas en [LICENSE](LICENSE); esta página explica su alcance.
   red, debes ofrecer de forma visible su código fuente correspondiente a
   quienes interactúan con ella, según la sección 13. Un servicio modificado
   debe ofrecer su propio código; enlazar solo al original no basta.
-- Ejecutar un cálculo por terminal en una VM de nube o mediante SSH no
-  activa, por sí solo, esa obligación adicional de interacción por red.
 - Tus datos, resultados numéricos y artículos no pasan a AGPL por usar Olla.
   El HTML interactivo también contiene código del programa: conserva su
   aviso AGPL, la licencia completa y un enlace al código de la versión.

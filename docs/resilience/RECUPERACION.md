@@ -3,7 +3,7 @@
 El modo `resilient` ejecuta QE por tramos y guarda generaciones completas en
 un disco persistente. Ante una interrupción, vuelve al último guardado válido.
 Puede perder el trabajo realizado desde ese guardado. No recupera un disco
-borrado ni garantiza que Google tenga capacidad Spot disponible inmediatamente.
+borrado. La validación publicada simula interrupciones de procesos locales.
 
 Inicializa el trabajo una sola vez con su input original:
 
@@ -45,17 +45,14 @@ sudo systemctl enable --now olla-calculo.service
 
 El servicio requiere que el disco esté montado. En un apagado intenta detener
 QE limpiamente, pero si el aviso no alcanza sigue existiendo el guardado
-anterior. Para que una VM Spot retirada vuelva a existir necesitas además un
-controlador de Google Cloud, por ejemplo un grupo administrado con estado,
-una sola instancia y disco de datos conservado. El servicio dentro de una VM
-apagada no puede encenderla. Olla-Lungo mantiene la receta de despliegue y la
-evaluación de costes; este comando no crea ni paga recursos.
+anterior. El servicio se ejecuta en la máquina local; no puede encender un
+equipo apagado.
 
-Configura el disco con conservación al eliminar la VM, montaje estable y un
-único escritor. Usa una imagen inmutable con las mismas rutas. No coloques el
-estado en SSD local efímero ni en un bucket montado mediante FUSE. Reserva
-espacio para las dos generaciones, el intento activo y la nueva copia durante
-su publicación, además de logs y margen.
+Conserva el directorio de estado en un disco local con montaje estable y un
+único escritor. Mantén el mismo entorno y las mismas rutas. El sistema de
+archivos debe soportar bloqueo, sincronización y renombrado atómico; consulta
+el contrato local. Reserva espacio para las dos generaciones, el intento activo
+y la nueva copia durante su publicación, además de logs y margen.
 
 ## Alcance y validación
 
@@ -68,14 +65,11 @@ coste. Sí se administran las rutas, el modo de reinicio y el límite por tramo.
 
 El intervalo de 900 segundos es un punto de partida, no una optimización
 universal. Un tramo demasiado corto puede gastar todo su tiempo iniciando QE.
-Mide el tiempo de copiar/guardar, restaurar, repetir trabajo perdido, esperar
-capacidad y pagar el disco. Limita gasto y tiempo desde el controlador. El
-ahorro neto no equivale automáticamente al descuento anunciado de la VM.
+Mide el tiempo de copiar, guardar, restaurar y repetir trabajo perdido para
+elegir un intervalo adecuado para tu equipo y cálculo.
 
 Fuentes: [reinicio de QE](https://www.quantum-espresso.org/Doc/pw_user_guide/node20.html),
-[parámetros de pw.x](https://www.quantum-espresso.org/Doc/INPUT_PW.html),
-[Spot de Google Cloud](https://docs.cloud.google.com/compute/docs/instances/spot),
-[grupos administrados con estado](https://docs.cloud.google.com/compute/docs/instance-groups/how-stateful-migs-work).
+[parámetros de pw.x](https://www.quantum-espresso.org/Doc/INPUT_PW.html).
 
 Una pausa recibida durante la restauración se respeta antes de iniciar QE y
 no suma un intento. Si falla la escritura del registro de arranque, Olla detiene

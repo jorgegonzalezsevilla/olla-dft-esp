@@ -24,7 +24,7 @@ Todos los cambios relevantes de Olla-DFT. Las fechas son ISO 8601.
 - Congela input, UPFs, MPI, hilos, bibliotecas y arquitectura; limita fallos consecutivos.
 - Genera un servicio Linux para continuar al arrancar con el disco persistente montado.
 - Mide cálculo, restauración y copia para comparar costes con Olla-Lungo sin cambiar la física.
-- Recuperación SCF, relax y vc-relax validada localmente con QE 7.4; reemplazo y ahorro cloud aún sin medir.
+- Recuperación SCF, relax y vc-relax validada localmente con QE 7.4; recuperación tras apagones físicos o pérdida del disco aún sin medir.
 
 ## 1.1.1 — 2026-09-04
 

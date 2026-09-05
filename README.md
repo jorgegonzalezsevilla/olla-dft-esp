@@ -74,7 +74,7 @@ Abre `resultados.html`: filtra cálculos, elige métricas y unidades, selecciona
 
 `olla-dft resilient` guarda y verifica checkpoints para reanudar trabajos compatibles de `pw.x` cuando se conserva el disco. Requiere configurar el entorno persistente: [guía de recuperación](docs/resilience/RECUPERACION.md).
 
-Se verificaron parejas locales SCF, `relax` y `vc-relax` con cortes simulados de procesos. Recuperar una VM de Google Cloud, sobrevivir a la pérdida del disco y el ahorro económico **no están demostrados**. [Resultados y tolerancias](https://jorgegonzalezsevilla.github.io/olla-dft-bench/publication-1.2.0/) · [Contrato](docs/resilience/CONTRACT.md).
+Se verificaron parejas locales SCF, `relax` y `vc-relax` con cortes simulados de procesos. La recuperación tras un apagón físico o la pérdida del disco **no está demostrada**. [Resultados y tolerancias](https://jorgegonzalezsevilla.github.io/olla-dft-bench/publication-1.2.0/) · [Contrato](docs/resilience/CONTRACT.md).
 
 ## Documentación, calidad y cita
 
