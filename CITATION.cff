@@ -1,28 +1,34 @@
 cff-version: 1.2.0
-message: "If you use Olla-DFT in your research, please cite it as below."
+message: "Para citar Olla-DFT, utiliza el registro principal del proyecto, también al usar esta edición en español."
 type: software
 title: "Olla-DFT: a command-line toolkit for Quantum ESPRESSO"
 version: 1.3.1
 date-released: 2026-09-04
-doi: 10.5281/zenodo.22287496
+doi: 10.5281/zenodo.22263121
 identifiers:
   - type: doi
-    value: 10.5281/zenodo.22322149
+    value: 10.5281/zenodo.22322146
     description: "Version DOI of 1.3.1"
   - type: doi
-    value: 10.5281/zenodo.22319568
+    value: 10.5281/zenodo.22319567
     description: "Version DOI of 1.3.0"
   - type: doi
-    value: 10.5281/zenodo.22316043
+    value: 10.5281/zenodo.22316019
     description: "Version DOI of 1.2.0"
   - type: doi
-    value: 10.5281/zenodo.22313675
+    value: 10.5281/zenodo.22313696
     description: "Version DOI of 1.1.1"
   - type: doi
-    value: 10.5281/zenodo.22287932
-    description: "DOI de la edición española, versión 1.1.0"
+    value: 10.5281/zenodo.22263122
+    description: "Version DOI of 1.0.0"
+  - type: doi
+    value: 10.5281/zenodo.22287495
+    description: "Version DOI of 1.0.1"
+  - type: doi
+    value: 10.5281/zenodo.22287931
+    description: "Version DOI of 1.1.0"
 license: AGPL-3.0-or-later
-repository-code: "https://github.com/jorgegonzalezsevilla/olla-dft-esp"
+repository-code: "https://github.com/jorgegonzalezsevilla/olla-dft"
 authors:
   - family-names: "González Sevilla"
     given-names: "Jorge Enrique"

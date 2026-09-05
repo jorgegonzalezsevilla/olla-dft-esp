@@ -57,9 +57,7 @@ def test_inventario_de_terceros_cubre_las_dependencias():
 
 
 def test_metadatos_y_copia_instalable_de_la_licencia():
-    import json
     from qekit import data
-    assert json.loads(_leer('.zenodo.json'))['license'] == 'AGPL-3.0-or-later'
     assert 'license: AGPL-3.0-or-later' in _leer('CITATION.cff')
     assert (Path(data.__file__).parent / 'AGPL-3.0.txt').read_text() == _leer('LICENSE')
     assert 'GNU GENERAL PUBLIC LICENSE' in _leer('LICENSES/GPL-3.0.txt')

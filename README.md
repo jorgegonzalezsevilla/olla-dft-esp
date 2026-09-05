@@ -6,7 +6,7 @@ Prepara cálculos, analiza propiedades y comparte gráficas y datos.</p>
 <p align="center">
 <a href="https://github.com/jorgegonzalezsevilla/olla-dft-esp/actions/workflows/ci.yml"><img src="https://github.com/jorgegonzalezsevilla/olla-dft-esp/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-AGPL--3.0-blue.svg" alt="AGPL-3.0-or-later"></a>
-<a href="https://doi.org/10.5281/zenodo.22287496"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22287496.svg" alt="DOI"></a>
+<a href="https://doi.org/10.5281/zenodo.22263121"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22263121.svg" alt="DOI"></a>
 </p>
 
 <p align="center"><a href="https://github.com/jorgegonzalezsevilla/olla-dft">English edition</a> · <a href="docs/COMANDOS.md">Comandos</a> · <a href="examples/">Ejemplos</a> · <a href="https://jorgegonzalezsevilla.github.io/olla-dft-bench/publication-1.2.0/">Galería y demo</a></p>
@@ -82,6 +82,8 @@ Se verificaron parejas locales SCF, `relax` y `vc-relax` con cortes simulados de
 
 Proyecto personal de **Jorge Enrique González Sevilla**, desarrollado en Guadalajara, México; independiente de Quantum ESPRESSO. Software libre **AGPL-3.0-or-later**, sin telemetría automática. Se agradecen [incidencias e ideas](https://github.com/jorgegonzalezsevilla/olla-dft-esp/issues); el mantenimiento de código es del autor ([contribución](CONTRIBUTING.md)).
 
-Para citar la versión utilizada: [CITATION.cff](CITATION.cff) y [Zenodo](https://doi.org/10.5281/zenodo.22287496). Cita también Quantum ESPRESSO y los pseudopotenciales empleados. [Licencia](LICENSE) · [Créditos de terceros](THIRD_PARTY_NOTICES.md).
+Esta es la edición en español del mismo proyecto. En Zenodo se publica y cita únicamente el repositorio principal **olla-dft**; esta edición no genera registros independientes.
+
+Para citar la versión utilizada: [CITATION.cff](CITATION.cff) y [Zenodo](https://doi.org/10.5281/zenodo.22263121). Cita también Quantum ESPRESSO y los pseudopotenciales empleados. [Licencia](LICENSE) · [Créditos de terceros](THIRD_PARTY_NOTICES.md).
 
 [Licencia y uso comercial](LICENSING.md): AGPLv3 o posterior desde 1.3.0; las versiones anteriores conservan GPL. Se permite el uso comercial.
