@@ -11,6 +11,7 @@ from qekit.core.errors import ErrorDeUso
 from qekit.modules import results
 
 ASSETS = Path(__file__).resolve().parents[1] / 'data'
+SOURCE_URL = 'https://github.com/jorgegonzalezsevilla/olla-dft-esp'
 
 
 def portable_rows(rows):
@@ -66,8 +67,10 @@ def generate(rows, destination, title='Olla-DFT', language='es', total_count=Non
     template = (ASSETS/'studio/studio.html').read_text()
     substitutions = {'LANG': language, 'TITLE': html.escape(str(title)),
                      'CSS': (ASSETS/'studio/studio.css').read_text(),
-                     'JS': (ASSETS/'studio/studio.js').read_text(), 'PAYLOAD': encoded}
-    text = re.sub(r'@@(LANG|TITLE|CSS|JS|PAYLOAD)@@',
+                     'JS': (ASSETS/'studio/studio.js').read_text(), 'PAYLOAD': encoded,
+                     'LICENSE': html.escape((ASSETS/'AGPL-3.0.txt').read_text()),
+                     'SOURCE': f'{SOURCE_URL}/tree/v{__version__}'}
+    text = re.sub(r'@@(LANG|TITLE|CSS|JS|PAYLOAD|LICENSE|SOURCE)@@',
                   lambda match: substitutions[match.group(1)], template)
     target = Path(destination)
     target.parent.mkdir(parents=True, exist_ok=True)

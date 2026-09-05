@@ -2559,4 +2559,4 @@ ver o cambiar la configuración
 
 ---
 
-*Olla-DFT 1.2.0*
+*Olla-DFT 1.3.0*

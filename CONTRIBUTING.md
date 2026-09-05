@@ -45,7 +45,7 @@ Los casos de uso claros son los que más a menudo llegan a una versión.
 
 ## Correr la suite de pruebas por tu cuenta
 
-Eres libre de clonar, leer y correr el código bajo la GPL. Si quieres
+Eres libre de clonar, leer y correr el código bajo la AGPL. Si quieres
 comprobar que todo funciona en tu máquina:
 
 ```bash
@@ -62,8 +62,10 @@ qué tiene tu máquina. Los requisitos y las notas por sistema están en
 
 ## Licencia
 
-Olla-DFT es software libre bajo la GNU General Public License, versión 3 (ver
+Olla-DFT es software libre bajo la GNU Affero General Public License, versión 3 o posterior (ver
 [LICENSE](LICENSE)). Los componentes y datos de terceros están en
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 Copyright © 2026 Jorge Enrique González Sevilla.
+
+Desde 1.3.0 se aplica AGPL-3.0-or-later. Consulta [LICENSING.md](LICENSING.md) para el alcance y uso comercial. Enviar comentarios no transfiere derechos; incorporar código externo requiere revisar sus permisos por separado.

@@ -101,3 +101,15 @@ def test_empty_dashboard_links_to_offline_explorer(tmp_path):
     target = dashboard.generate(root, data, destination=tmp_path/'custom name.html')
     assert 'custom%20name.results.html' in target.read_text()
     assert payload(tmp_path/'custom name.results.html')['rows'] == []
+
+
+def test_html_incluye_licencia_y_fuente_de_la_version(tmp_path):
+    import html
+    from qekit import __version__
+    path = studio.generate([row()], tmp_path / 'licensed.html')
+    text = path.read_text()
+    assert 'GNU AFFERO GENERAL PUBLIC LICENSE' in html.unescape(text)
+    assert '13. Remote Network Interaction' in text
+    assert f'{studio.SOURCE_URL}/tree/v{__version__}' in text
+    assert '@@LICENSE@@' not in text and '@@SOURCE@@' not in text
+    assert payload(path)['rows'][0]['metrics']['energy_total']['value'] == -20.125

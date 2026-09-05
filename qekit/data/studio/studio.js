@@ -1,3 +1,6 @@
+// Copyright (C) 2026 Jorge Enrique González Sevilla
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Full license is included in the generated HTML.
 (function () {
 'use strict';
 const data=JSON.parse(document.getElementById('studio-data').textContent);
