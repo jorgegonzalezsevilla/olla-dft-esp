@@ -12,11 +12,11 @@ from __future__ import annotations
 
 import html
 import json
-import math
 from pathlib import Path
+from urllib.parse import quote
 
 from qekit import __command_name__, __product_name__
-from qekit.modules import quality, project, results
+from qekit.modules import quality, project, results, studio
 
 
 _TRANSLATION_DIR = Path(__file__).resolve().parent.parent / "data" / "i18n"
@@ -98,33 +98,13 @@ def generate(root: Path, data: dict, destination=None, theme="auto", language="e
             f'<td>{esc(summary)}</td></tr>')
     campaign_table = "".join(campaign_rows) or (
         f"<tr><td colspan='4'>{labels['no_data']} <code>{__command_name__} campaign create</code>.</td></tr>")
-    chart_values = []
-    for item in result_state.get("results", []):
-        value = item.get("metrics", {}).get("energy_per_atom", {}).get("value")
-        if isinstance(value, (int, float)) and math.isfinite(value):
-            chart_values.append((item.get("formula") or "?", float(value)))
-    if len(chart_values) >= 2:
-        width, height, pad = 760, 180, 28
-        low = min(value for _, value in chart_values)
-        high = max(value for _, value in chart_values)
-        span = high - low or 1.0
-        points = []
-        for index, (_label, value) in enumerate(chart_values):
-            x = pad + index * (width - 2 * pad) / (len(chart_values) - 1)
-            y = height - pad - (value - low) * (height - 2 * pad) / span
-            points.append(f"{x:.1f},{y:.1f}")
-        result_chart = (
-            f'<svg viewBox="0 0 {width} {height}" role="img" '
-            f'aria-label="{esc(labels["chart_aria"])}">'
-            f'<polyline points="{" ".join(points)}" fill="none" stroke="#1769aa" '
-            f'stroke-width="3" />'
-            + "".join(f'<circle cx="{point.split(",")[0]}" cy="{point.split(",")[1]}" '
-                      'r="5" fill="#1769aa" />' for point in points)
-            + f'<text x="{pad}" y="16" class="chart-label">{low:.4g} — {high:.4g} {esc(labels["chart_range_suffix"])}</text>'
-            + "</svg>")
-    else:
-        result_chart = ("<p class='meta'>" +
-                        labels["trend_empty"] + "</p>")
+    explorer = target.with_name(target.stem + ".results.html")
+    studio.generate(results.list_results(results.project_db(root), limit=10000),
+                    explorer, title=data.get("name", root.name), language=language,
+                    total_count=result_state["count"], order="ingested_desc_path_asc")
+    result_chart = (f'<p><a class="copy" href="{esc(quote(explorer.name))}">'
+                    f'{esc(labels["explore_results"])}</a></p>'
+                    f'<p class="meta">{esc(labels["explore_hint"])}</p>')
     commands = [
         f"{__command_name__} project validate --project {root} --advanced",
         f"{__command_name__} project status --project {root}",

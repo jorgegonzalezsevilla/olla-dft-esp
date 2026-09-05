@@ -13,7 +13,7 @@ El comando instalado es ``olla-dft``. El paquete Python conserva el nombre
 de configuración existentes sigan funcionando.
 """
 
-__version__ = "1.1.1"
+__version__ = "1.2.0"
 __product_name__ = "Olla-DFT"
 __command_name__ = "olla-dft"
 __author__ = "Jorge Enrique González Sevilla"

@@ -57,5 +57,7 @@
   "verdict_revisar": "REVIEW",
   "verdict_bloqueado": "BLOCKED",
   "chart_aria": "Energy per atom for recent results",
-  "chart_range_suffix": "eV/atom"
+  "chart_range_suffix": "eV/atom",
+  "explore_results": "Explore charts and export",
+  "explore_hint": "Choose data, customize the figure and download SVG, PNG, CSV, JSON or an offline interactive view."
 }

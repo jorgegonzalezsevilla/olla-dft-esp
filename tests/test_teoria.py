@@ -14,7 +14,7 @@ RAIZ = Path(__file__).resolve().parent.parent
 SIN_FISICA = {
     "start", "wizard", "recetas", "teoria", "docs", "sistema", "templates",
     "config", "project", "results", "campaign", "compare", "report",
-    "datasheet", "convert", "update",
+    "datasheet", "convert", "update", "resilient",
 }
 
 

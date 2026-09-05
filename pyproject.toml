@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "olla-dft"
-version = "1.1.1"
+version = "1.2.0"
 description = "Command-line toolkit for Quantum ESPRESSO: input generation, post-processing, materials properties and quality control"
 readme = "README.md"
 requires-python = ">=3.9"
@@ -58,7 +58,7 @@ kappa = ["phono3py>=3"]
 include = ["qekit*"]
 
 [tool.setuptools.package-data]
-"qekit.data" = ["*.json", "*.txt", "i18n/*.json", "theory/*.md"]
+"qekit.data" = ["*.json", "*.txt", "i18n/*.json", "studio/*.html", "studio/*.css", "studio/*.js", "theory/*.md"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -636,6 +636,18 @@
     "Listo. Abre una terminal nueva y comprueba con": "Done. Open a new terminal and check with",
     "¿Actualizar ahora? [s/N] ": "Update now? [y/N] ",
     "No se hizo nada.": "Nothing was done.",
-    "malla k explícita para scf/relax (tres enteros; anula --kspacing y --klevel)": "explicit k-grid for scf/relax (three integers; overrides --kspacing and --klevel)"
+    "malla k explícita para scf/relax (tres enteros; anula --kspacing y --klevel)": "explicit k-grid for scf/relax (three integers; overrides --kspacing and --klevel)",
+    "cálculos QE recuperables ante interrupciones del servidor": "recoverable QE jobs for interrupted servers",
+    "input para init; directorio persistente del trabajo para las demás acciones": "input file for init; durable state directory otherwise",
+    "directorio nuevo del trabajo en un disco persistente conservado": "new job directory on a retained persistent disk",
+    "comando de QE o MPI con paralelismo fijo": "QE/launcher command, with fixed MPI flags",
+    "guardados íntegros que conservar (mínimo 2)": "intact checkpoint generations to retain (minimum 2)",
+    "detenerse tras este número de segmentos guardados; 0 significa sin límite": "stop after this many saved segments; 0 means unlimited",
+    "retirar una pausa explícita antes de continuar": "clear an explicit pause before running",
+    "usuario sin privilegios del servicio systemd generado": "unprivileged user for the generated systemd service",
+    "archivo de servicio generado; se instala por separado": "generated service file; installation is separate",
+    "máximo de registros: list=100, explore=10000": "maximum records: list=100, explore=10000",
+    "archivo de salida: export=JSON, explore=HTML interactivo": "output file: export=JSON, explore=interactive HTML",
+    "identificador de la imagen inmutable del entorno": "immutable runtime image identifier"
   }
 }

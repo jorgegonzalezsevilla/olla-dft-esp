@@ -1,0 +1,57 @@
+[
+  {
+    "id": "bands",
+    "file": "bands.png",
+    "sha256": "7d588b2f3ce1f7a5bbaa3fe0e9d890c9ae863f9df2a93c799b421367d439dc4e",
+    "source": "https://github.com/jorgegonzalezsevilla/olla-dft/blob/v1.2.0/examples/demo_Si/Si_bandas_dos.png",
+    "conditions": "https://github.com/jorgegonzalezsevilla/olla-dft/tree/v1.2.0/examples/demo_Si",
+    "caption_es": "Bandas y DOS · silicio",
+    "caption_en": "Bands and DOS · silicon",
+    "scope_es": "Ejemplo LDA; gap calculado de 0,52 eV. No equivale al gap experimental.",
+    "scope_en": "LDA example; calculated gap 0.52 eV. This is not the experimental gap."
+  },
+  {
+    "id": "spin",
+    "file": "spin.png",
+    "sha256": "4ec8141deb265191042076831f65a44e3ca2fd202bafdd13f4d23ddcc1a81fbc",
+    "source": "https://github.com/jorgegonzalezsevilla/olla-dft/blob/v1.2.0/examples/demo_Fe/Fe_dos.png",
+    "conditions": "https://github.com/jorgegonzalezsevilla/olla-dft/tree/v1.2.0/examples/demo_Fe",
+    "caption_es": "Magnetismo · hierro bcc",
+    "caption_en": "Magnetism · bcc iron",
+    "scope_es": "DOS resuelta por espín de un ejemplo ferromagnético. Canales opuestos por convención gráfica.",
+    "scope_en": "Spin-resolved DOS of a ferromagnetic example. Opposite channels follow the plotting convention."
+  },
+  {
+    "id": "eos",
+    "file": "eos.png",
+    "sha256": "e35cf027ec8e4da70d483e40482d61f3d5af9c89d104b7a6b79c0e146c3cbe84",
+    "source": "https://github.com/jorgegonzalezsevilla/olla-dft/blob/v1.2.0/examples/demo_calculo/eos.png",
+    "conditions": "https://github.com/jorgegonzalezsevilla/olla-dft/tree/v1.2.0/examples/demo_calculo",
+    "caption_es": "Ecuación de estado · silicio",
+    "caption_en": "Equation of state · silicon",
+    "scope_es": "Energía frente a volumen y residuos del ajuste Birch–Murnaghan. Ejemplo LDA.",
+    "scope_en": "Energy versus volume and Birch–Murnaghan fit residuals. LDA example."
+  },
+  {
+    "id": "phonons",
+    "file": "phonons.png",
+    "sha256": "8a47533aaa6871b423bf1b744778306642f856b96e1759f080ee6b28a6474748",
+    "source": "https://github.com/jorgegonzalezsevilla/olla-dft/blob/v1.2.0/examples/demo_propiedades/fonones_Si.png",
+    "conditions": "https://github.com/jorgegonzalezsevilla/olla-dft/tree/v1.2.0/examples/demo_propiedades",
+    "caption_es": "Vibraciones de la red · silicio",
+    "caption_en": "Lattice vibrations · silicon",
+    "scope_es": "Dispersión y DOS de fonones. Ejemplo LDA, malla q de 2×2×2; no implica convergencia para otros materiales.",
+    "scope_en": "Phonon dispersion and DOS. LDA example, 2×2×2 q mesh; not a convergence claim for other materials."
+  },
+  {
+    "id": "optics",
+    "file": "optics.png",
+    "sha256": "124d0695f9f970d80dee205252d5e7dca82905158f5f1df65e8de85e6dff6754",
+    "source": "https://github.com/jorgegonzalezsevilla/olla-dft/blob/v1.2.0/examples/demo_propiedades/opticas_Si.png",
+    "conditions": "https://github.com/jorgegonzalezsevilla/olla-dft/tree/v1.2.0/examples/demo_propiedades",
+    "caption_es": "Respuesta óptica · silicio",
+    "caption_en": "Optical response · silicon",
+    "scope_es": "Funciones ópticas del ejemplo: corrección scissor de 0,65 eV. El ajuste óptico mostrado no es el gap electrónico indirecto.",
+    "scope_en": "Example optical functions with a 0.65 eV scissor correction. The displayed optical fit is not the indirect electronic gap."
+  }
+]
