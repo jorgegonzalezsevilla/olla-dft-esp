@@ -1,9 +1,8 @@
-# Recovery contract: Olla-DFT and Olla-Lungo
+# Local recovery contract
 
-Olla-DFT owns the recovery engine in `qekit.modules.resilient`. Olla-Lungo
-owns cost estimation, orchestration and comparison of observed results. It
-must call this engine rather than maintain a second restart implementation.
-The interface is provisional until the 1.2.0 release review is complete.
+Olla-DFT implements local recovery in `qekit.modules.resilient`.
+This document describes the API, storage requirements and validation limits
+for calculations on the same retained local environment.
 
 ## Python API and CLI
 
@@ -22,7 +21,7 @@ must run on the main thread because it handles signals. `status` verifies
 assets/runtime/checksums and returns a dictionary. `pause` requests a clean
 persistent pause; `run(..., resume=True)` clears that manual pause. SIGTERM
 requests a clean stop without a persistent pause, allowing recovery on boot.
-No function provisions resources or sends data to the cloud.
+The API operates on local job directories.
 
 CLI equivalent:
 
@@ -38,24 +37,24 @@ Return codes: 0 = verified physical success; 75 = stopped/paused/segment limit;
 holds the lock (CLI only). Python raises `BusyJob` for 76 and `ErrorDeUso` for
 invalid input/state. A nonzero code must never count as scientific success.
 `max_segments=0` has no segment limit; positive values bound clean segments
-in this invocation, not lifetime spending. Permanent failure attempts persist
+in this invocation, not lifetime execution time. Permanent failure attempts persist
 across worker restarts. Very short segments can spend all their time starting
-QE: callers must enforce their own wall-time and monetary limits.
+QE: callers must enforce their own wall-time limits.
 
 ## Identity and storage
 
 Schema 1 records original input and UPF hashes, command and fixed MPI flags,
 thread count, binary and linked-library hashes, architecture, relevant runtime
-environment and an image/build label. The label is provenance, not proof that
-a VM actually booted that image. Restore the pinned image and paths on a
-replacement VM. No checkpoint format migration is implicit. Dynamic plugins,
+environment and an image/build label. The label is provenance, not proof of
+the actual running environment. Keep the same runtime and paths across
+restarts. No checkpoint format migration is implicit. Dynamic plugins,
 GPU drivers and filesystem guarantees are outside the library-hash check;
 these require a fixed environment and separate validation.
 
-The state root must be a retained POSIX filesystem attached to exactly one VM
-for writing, supporting flock, fsync and atomic rename. Local SSD and bucket
-FUSE mounts do not satisfy this contract. Mount the persistent disk before
-starting the worker; retain it when deleting/replacing the VM.
+The state root must be a retained local POSIX filesystem with exactly one
+writer, supporting flock, fsync and atomic rename. Mount the disk before
+starting the worker and keep it across restarts. Temporary filesystems and
+filesystems without those guarantees do not satisfy this contract.
 
 Each attempt restores a committed snapshot into a private writable directory.
 Only return code 0, a recognized clean QE stop, valid XML and nonempty charge
@@ -99,10 +98,9 @@ Local QE 7.4 silicon SCF validation killed both supervisor and QE, corrupted an
 abandoned workspace and recovered the last committed checkpoint. The printed
 final energy matched an uninterrupted run: -22.83929159 Ry (difference 0 Ry
 at printed precision). This does not establish bitwise internal equivalence,
-cloud availability, savings, MPI restart support on every deployment, or
-recovery after loss of the persistent disk itself. The opt-in reproduction
-script is `validation/resilience/exercise.py`. Google Cloud replacement and
-billing must be measured separately before making a cost claim.
+MPI restart support for every configuration, recovery after physical power
+loss, or recovery after loss of the disk itself. The opt-in reproduction
+script is `validation/resilience/exercise.py`.
 
 Additional installed-wheel tests passed for displaced-silicon `relax` and
 `vc-relax`. Their XML comparison includes energy, every force/stress component,

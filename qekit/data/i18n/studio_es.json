@@ -112,5 +112,8 @@
   "missingSelection": "IDs de la selección guardada no están en esta copia; revisa el archivo original.",
   "stateCaution": "Incluyes estados no convergidos o desconocidos. Sus energías no son referencias convergidas: revisa los detalles antes de comparar.",
   "stateFigure": "× / ▱: no convergencia confirmada; energía no validada para comparar.",
-  "energyBars": "Barras de energía desde cero pueden ocultar diferencias pequeñas; usa puntos para verlas."
+  "energyBars": "Barras de energía desde cero pueden ocultar diferencias pequeñas; usa puntos para verlas.",
+  "softwareLicense": "Licencia del programa",
+  "sourceCode": "Código fuente de esta versión",
+  "licenseScope": "Esta licencia corresponde al programa; tus datos conservan sus propios derechos."
 }

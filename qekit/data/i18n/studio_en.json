@@ -112,5 +112,8 @@
   "missingSelection": "saved selection IDs are absent from this copy; check the original file.",
   "stateCaution": "You include unconverged or unknown states. Their energies are not converged references: check details before comparing.",
   "stateFigure": "× / ▱: convergence unconfirmed; energy not validated for comparison.",
-  "energyBars": "Energy bars starting at zero can hide small differences; use points to inspect them."
+  "energyBars": "Energy bars starting at zero can hide small differences; use points to inspect them.",
+  "softwareLicense": "Software license",
+  "sourceCode": "Source code for this version",
+  "licenseScope": "This license applies to the software; your data retain their own rights."
 }

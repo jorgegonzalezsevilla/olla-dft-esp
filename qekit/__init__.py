@@ -1,8 +1,8 @@
 # Olla-DFT — command-line toolkit for Quantum ESPRESSO
 # Copyright (C) 2026 Jorge Enrique González Sevilla
-# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # This program is free software: you can redistribute it and/or modify it
-# under the terms of the GNU General Public License as published by the Free
+# under the terms of the GNU Affero General Public License as published by the Free
 # Software Foundation, either version 3 of the License, or (at your option)
 # any later version. See the LICENSE file for details.
 
@@ -13,7 +13,7 @@ El comando instalado es ``olla-dft``. El paquete Python conserva el nombre
 de configuración existentes sigan funcionando.
 """
 
-__version__ = "1.2.0"
+__version__ = "1.3.0"
 __product_name__ = "Olla-DFT"
 __command_name__ = "olla-dft"
 __author__ = "Jorge Enrique González Sevilla"

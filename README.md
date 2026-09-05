@@ -5,7 +5,7 @@ Prepara cálculos, analiza propiedades y comparte gráficas y datos.</p>
 
 <p align="center">
 <a href="https://github.com/jorgegonzalezsevilla/olla-dft-esp/actions/workflows/ci.yml"><img src="https://github.com/jorgegonzalezsevilla/olla-dft-esp/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
-<a href="LICENSE"><img src="https://img.shields.io/badge/license-GPL--3.0-blue.svg" alt="GPL-3.0-or-later"></a>
+<a href="LICENSE"><img src="https://img.shields.io/badge/license-AGPL--3.0-blue.svg" alt="AGPL-3.0-or-later"></a>
 <a href="https://doi.org/10.5281/zenodo.22287496"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.22287496.svg" alt="DOI"></a>
 </p>
 
@@ -74,12 +74,14 @@ Abre `resultados.html`: filtra cálculos, elige métricas y unidades, selecciona
 
 `olla-dft resilient` guarda y verifica checkpoints para reanudar trabajos compatibles de `pw.x` cuando se conserva el disco. Requiere configurar el entorno persistente: [guía de recuperación](docs/resilience/RECUPERACION.md).
 
-Se verificaron parejas locales SCF, `relax` y `vc-relax` con cortes simulados de procesos. Recuperar una VM de Google Cloud, sobrevivir a la pérdida del disco y el ahorro económico **no están demostrados**. [Resultados y tolerancias](https://jorgegonzalezsevilla.github.io/olla-dft-bench/publication-1.2.0/) · [Contrato](docs/resilience/CONTRACT.md).
+Se verificaron parejas locales SCF, `relax` y `vc-relax` con cortes simulados de procesos. La recuperación tras un apagón físico o la pérdida del disco **no está demostrada**. [Resultados y tolerancias](https://jorgegonzalezsevilla.github.io/olla-dft-bench/publication-1.2.0/) · [Contrato](docs/resilience/CONTRACT.md).
 
 ## Documentación, calidad y cita
 
 [Comandos](docs/COMANDOS.md) · [Teoría](docs/TEORIA.md) · [Validación](docs/VALIDACION.md) · [Arquitectura](docs/ARQUITECTURA.md) · [Benchmark reproducible](https://github.com/jorgegonzalezsevilla/olla-dft-bench) · [Cambios](CHANGELOG.md)
 
-Proyecto personal de **Jorge Enrique González Sevilla**, desarrollado en Guadalajara, México; independiente de Quantum ESPRESSO. Software libre **GPL-3.0-or-later**, sin telemetría automática. Se agradecen [incidencias e ideas](https://github.com/jorgegonzalezsevilla/olla-dft-esp/issues); el mantenimiento de código es del autor ([contribución](CONTRIBUTING.md)).
+Proyecto personal de **Jorge Enrique González Sevilla**, desarrollado en Guadalajara, México; independiente de Quantum ESPRESSO. Software libre **AGPL-3.0-or-later**, sin telemetría automática. Se agradecen [incidencias e ideas](https://github.com/jorgegonzalezsevilla/olla-dft-esp/issues); el mantenimiento de código es del autor ([contribución](CONTRIBUTING.md)).
 
 Para citar la versión utilizada: [CITATION.cff](CITATION.cff) y [Zenodo](https://doi.org/10.5281/zenodo.22287496). Cita también Quantum ESPRESSO y los pseudopotenciales empleados. [Licencia](LICENSE) · [Créditos de terceros](THIRD_PARTY_NOTICES.md).
+
+[Licencia y uso comercial](LICENSING.md): AGPLv3 o posterior desde 1.3.0; las versiones anteriores conservan GPL. Se permite el uso comercial.

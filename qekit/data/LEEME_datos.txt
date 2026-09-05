@@ -32,4 +32,4 @@ siguiente aviso al redistribuir el material:
     TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
     SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-Ver tambien AVISOS_TERCEROS.txt en la raiz del proyecto.
+Ver tambien THIRD_PARTY_NOTICES.md en la raiz del proyecto.
