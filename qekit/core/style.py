@@ -24,9 +24,8 @@ editorial; se pueden ajustar con `--width` si tu revista pide otra medida.
 
 from pathlib import Path
 
-import matplotlib
-from matplotlib import font_manager
-
+# El parser consulta los presets incluso en comandos sin figuras. Cargar
+# Matplotlib y descubrir fuentes solo dentro de las funciones de dibujo.
 from qekit.core import themes
 from qekit.core.errors import ErrorDeUso
 
@@ -164,6 +163,8 @@ def angstrom() -> str:
 
 def available_font(candidates: list) -> str:
     """Primera fuente de la lista que esté instalada en el sistema."""
+    from matplotlib import font_manager
+
     installed = {f.name for f in font_manager.fontManager.ttflist}
     for name in candidates:
         if name in installed:
@@ -183,6 +184,8 @@ def apply(theme=None, size: str = None, family: str = None,
     Devuelve un diccionario con la escala tipográfica y los datos del tema,
     que es lo que consultan las funciones de graficado.
     """
+    import matplotlib
+
     global CURRENT, _PALETTE, INK, INK_SOFT, INK_FAINT, GRID, USETEX
 
     t = themes.load(theme, family=family, background=background,
@@ -342,6 +345,8 @@ def finish_axes(ax):
     aspecto habitual de informes y diapositivas; 'box' deja el marco
     completo, que es la convención en revistas de física.
     """
+    import matplotlib
+
     mode = CURRENT.get("spines", "box")
     if mode in ("lr", "left-bottom", "open"):
         for side in ("top", "right"):
@@ -449,6 +454,8 @@ def style_line(index: int, n_series: int, dash_mode: str = "auto",
 def panel_label(ax, text: str, loc: str = "upper left", pad: float = 0.03,
                 weight: str = "bold"):
     """Etiqueta (a), (b)... para figuras de varios paneles."""
+    import matplotlib
+
     positions = {
         "upper left": (pad, 1 - pad, "left", "top"),
         "upper right": (1 - pad, 1 - pad, "right", "top"),
@@ -483,6 +490,8 @@ def save(fig, outbase: str, formats="pdf,png", dpi: int = None,
     incrusta en los METADATOS del archivo, no sobre la imagen: no estorba en
     la revista y sigue ahí para saber qué versión hizo la figura.
     """
+    import matplotlib
+
     base = Path(outbase)
     if base.suffix.lower().lstrip(".") in ("pdf", "png", "svg", "eps", "tif", "tiff"):
         base = base.with_suffix("")

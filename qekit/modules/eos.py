@@ -28,9 +28,6 @@ from pathlib import Path
 import numpy as np
 
 from qekit.core import qeout
-from qekit.core import provenance, structure
-from qekit.core import style as qstyle
-from qekit.modules import sweep
 from qekit.core.errors import ErrorDeUso, FaltanDatos
 
 EV_A3_GPA = 160.21766208
@@ -113,6 +110,9 @@ def prepare(atoms, outdir: str = "eos", npoints: int = 9, span: float = 0.10,
     Con `relax_ions` se usa 'relax' en vez de 'scf', necesario cuando las
     posiciones internas no están fijadas por simetría.
     """
+    from qekit.core import structure
+    from qekit.modules import sweep
+
     if npoints < 5:
         raise ErrorDeUso("hacen falta al menos 5 puntos para un ajuste fiable")
     common = sweep.prepare_common(atoms, pseudo_dir, ecutwfc, ecutrho, insulator)
@@ -310,6 +310,8 @@ def report(run: EOSRun, cell_a: float = None) -> str:
 
 
 def export(run: EOSRun, outdir: str = ".", cell_a: float = None) -> list:
+    from qekit.core import provenance
+
     out = Path(outdir); out.mkdir(parents=True, exist_ok=True)
     written = []
     fname = out / "EOS.dat"
@@ -335,6 +337,8 @@ def plot(run: EOSRun, outfile: str = "eos", equation: str = DEFAULT_EQ,
          usetex: bool = None, width="single", journal: str = "generic",
          aspect: float = 0.80, mono: bool = False, dpi: int = None) -> list:
     """E(V) con la curva ajustada y los residuales en un panel inferior."""
+    from qekit.core import style as qstyle
+
     try:
         import matplotlib
         matplotlib.use("Agg")
